@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb2D = GetComponent<Rigidbody2D>();
         actions = new PlayerActions();
     }
@@ -66,7 +66,7 @@ public class PlayerMovement : MonoBehaviour
         usingDash = false;
     }
 
-    private void RotatePlayer()
+    private void RotatePlayer()//rotation player 
     {
         if(moveDirection.x >= 0.1f)
         {
