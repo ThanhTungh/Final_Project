@@ -35,6 +35,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         CaptureInput();
+        RotatePlayer();
     }
     private void FixedUpdate()
     {
@@ -63,6 +64,18 @@ public class PlayerMovement : MonoBehaviour
         currrentSpeed = speed;
         ModifySpriteRenderer(1f);
         usingDash = false;
+    }
+
+    private void RotatePlayer()
+    {
+        if(moveDirection.x >= 0.1f)
+        {
+            spriteRenderer.flipX = false;
+        }
+        else if(moveDirection.x < 0f)
+        {
+            spriteRenderer.flipX = true;
+        }
     }
 
     private void ModifySpriteRenderer(float alpha)
