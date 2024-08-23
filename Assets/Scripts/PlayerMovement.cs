@@ -5,16 +5,32 @@ using UnityEngine.EventSystems;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Config")]
     [SerializeField] private float speed;
 
+    [Header("Dash")]
+    [SerializeField] private float dashSpeed = 15f;
+    [SerializeField] private float dashTime = 0.3f;
+    [SerializeField] private float transperency = 0.3f;
+
+    private SpriteRenderer spriteRenderer; 
     private Rigidbody2D rb2D;
     private PlayerActions actions;
+
     private Vector2 moveDirection;
+    private float currrentSpeed;
+    private bool usingDash;
 
     private void Awake()
     {
+        spriteRenderer = GetComponent<SpriteRenderer>();
         rb2D = GetComponent<Rigidbody2D>();
         actions = new PlayerActions();
+    }
+    private void Start()
+    {
+        currrentSpeed = speed;
+        actions.Movement.Dash.performed += context => Dash();
     }
     private void Update()
     {
@@ -27,7 +43,33 @@ public class PlayerMovement : MonoBehaviour
 
     private void MovePlayer()
     {
-        rb2D.MovePosition(rb2D.position + moveDirection * (speed * Time.fixedDeltaTime));
+        rb2D.MovePosition(rb2D.position + moveDirection * (currrentSpeed * Time.fixedDeltaTime));
+    }
+    private void Dash()
+    {
+        if (usingDash)
+        {
+            return;
+        }
+        usingDash = true;
+        StartCoroutine(IEDash());
+    }
+
+    private IEnumerator IEDash()
+    {
+        currrentSpeed = dashSpeed;
+        ModifySpriteRenderer(transperency);
+        yield return new WaitForSeconds(dashTime);
+        currrentSpeed = speed;
+        ModifySpriteRenderer(1f);
+        usingDash = false;
+    }
+
+    private void ModifySpriteRenderer(float alpha)
+    {
+        Color color = spriteRenderer.color;
+        color = new Color(color.r, color.g, color.b, alpha);
+        spriteRenderer.color = color;
     }
 
     private void CaptureInput()
