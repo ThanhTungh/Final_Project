@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec60e77010edaa4e853c67128e28b57, type: 3}
+  m_Name: Config_Shadowblade
+  m_EditorClassIdentifier: 
+  Level: 1
+  Name: Shadow Blade
+  Icon: {fileID: 1858702564, guid: 81183d4d90d9b1947bc32467ceade557, type: 3}
+  CurrentHealth: 5
+  MaxHealth: 5
+  CurrentArmor: 5
+  MaxArmor: 5
+  CurrentEnergy: 150
+  MaxEnergy: 150
+  CriticalChance: 10
+  CriticalDamage: 50
