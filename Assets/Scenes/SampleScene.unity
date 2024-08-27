@@ -1173,10 +1173,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 925342868035123038, guid: ff9c62e537275c94d88041a7910247c6, type: 3}
-      propertyPath: playerConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: 636b1e25330db5f40ae3689b9cc685f4, type: 2}
     - target: {fileID: 4255503900912053044, guid: ff9c62e537275c94d88041a7910247c6, type: 3}
       propertyPath: m_LocalPosition.x
       value: 7.71
@@ -1221,10 +1217,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Ember
       objectReference: {fileID: 0}
-    - target: {fileID: 7834658779728981838, guid: ff9c62e537275c94d88041a7910247c6, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1238,10 +1230,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3354523479354280002, guid: 119ecef8f345bda41b11ef1308d49d52, type: 3}
-      propertyPath: playerConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: f1ab6cce3f0f2f94c8e4e56efd6fb819, type: 2}
     - target: {fileID: 4255503900912053044, guid: 119ecef8f345bda41b11ef1308d49d52, type: 3}
       propertyPath: m_LocalPosition.x
       value: 5.42
@@ -1286,10 +1274,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Iron
       objectReference: {fileID: 0}
-    - target: {fileID: 7834658779728981838, guid: 119ecef8f345bda41b11ef1308d49d52, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1303,10 +1287,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 3117245512670128460, guid: 6659b02de429fc84ab124d94578d7d69, type: 3}
-      propertyPath: playerConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: e0e359b3fd1194248a4157b077a51027, type: 2}
     - target: {fileID: 4255503900912053044, guid: 6659b02de429fc84ab124d94578d7d69, type: 3}
       propertyPath: m_LocalPosition.x
       value: 3.22
@@ -1350,10 +1330,6 @@ PrefabInstance:
     - target: {fileID: 7834658779728981838, guid: 6659b02de429fc84ab124d94578d7d69, type: 3}
       propertyPath: m_Name
       value: Player_Ganfald
-      objectReference: {fileID: 0}
-    - target: {fileID: 7834658779728981838, guid: 6659b02de429fc84ab124d94578d7d69, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1881,10 +1857,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2269569435991147471, guid: f2c268bdc28a4c14d9d662a92b06049b, type: 3}
-      propertyPath: playerConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: 31abc99b2669b3343963bce7c17c345e, type: 2}
     - target: {fileID: 4255503900912053044, guid: f2c268bdc28a4c14d9d662a92b06049b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.78
@@ -1928,10 +1900,6 @@ PrefabInstance:
     - target: {fileID: 7834658779728981838, guid: f2c268bdc28a4c14d9d662a92b06049b, type: 3}
       propertyPath: m_Name
       value: Player_Novak
-      objectReference: {fileID: 0}
-    - target: {fileID: 7834658779728981838, guid: f2c268bdc28a4c14d9d662a92b06049b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2070,10 +2038,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4509670703746446253, guid: e98b5ff801b94f04599adf1fa63404e4, type: 3}
-      propertyPath: playerConfig
-      value: 
-      objectReference: {fileID: 11400000, guid: cf79df181d02a9443add5d10362d15e5, type: 2}
     - target: {fileID: 7834658779728981838, guid: e98b5ff801b94f04599adf1fa63404e4, type: 3}
       propertyPath: m_Name
       value: Player_Shadowblade
