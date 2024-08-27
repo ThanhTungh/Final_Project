@@ -215,6 +215,8 @@ GameObject:
   - component: {fileID: 4255503900912053044}
   - component: {fileID: 7838306975242145315}
   - component: {fileID: 8950168192621173108}
+  - component: {fileID: 5763951526564460342}
+  - component: {fileID: 925342868035123038}
   m_Layer: 0
   m_Name: Player_Ember
   m_TagString: Untagged
@@ -282,3 +284,36 @@ MonoBehaviour:
   dashSpeed: 25
   dashTime: 0.4
   transperency: 0.1
+--- !u!95 &5763951526564460342
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7834658779728981838}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 314b7d6d3a30cf64a980a0464fe39a22, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &925342868035123038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7834658779728981838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 368861d18d708174f8d84ad0a5ba5121, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
