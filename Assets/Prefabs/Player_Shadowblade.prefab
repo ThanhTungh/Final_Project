@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 8950168192621173108}
   - component: {fileID: 5740852476842439273}
   - component: {fileID: 4509670703746446253}
+  - component: {fileID: 1613860090642280255}
   m_Layer: 0
   m_Name: Player_Shadowblade
   m_TagString: Untagged
@@ -317,3 +318,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 368861d18d708174f8d84ad0a5ba5121, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerConfig: {fileID: 11400000, guid: cf79df181d02a9443add5d10362d15e5, type: 2}
+--- !u!114 &1613860090642280255
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7834658779728981838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33797804a75f68741b29d2f894ec1445, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerConfig: {fileID: 11400000, guid: cf79df181d02a9443add5d10362d15e5, type: 2}
