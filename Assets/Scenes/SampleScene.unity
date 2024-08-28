@@ -1045,6 +1045,57 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 475567379}
+--- !u!1 &525905099
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 525905101}
+  - component: {fileID: 525905100}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &525905100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525905099}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: af94d6742dcb99e41a93491fc9fcb176, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerConfig: {fileID: 11400000, guid: 636b1e25330db5f40ae3689b9cc685f4, type: 2}
+  healthBar: {fileID: 834540438}
+  healthText: {fileID: 133152418}
+  armorBar: {fileID: 2101217319}
+  armorText: {fileID: 1866760305}
+  energyBar: {fileID: 1300035348}
+  energyText: {fileID: 859828649}
+--- !u!4 &525905101
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 525905099}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -2.8877835, y: 0.35678962, z: 435.4474}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &576591889
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,7 +1450,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.767
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -1424,7 +1475,7 @@ GameObject:
   - component: {fileID: 859828650}
   - component: {fileID: 859828649}
   m_Layer: 5
-  m_Name: Health - TMP
+  m_Name: Energy - TMP
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2395,7 +2446,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.767
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -2592,6 +2643,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Iron
       objectReference: {fileID: 0}
+    - target: {fileID: 7834658779728981838, guid: 119ecef8f345bda41b11ef1308d49d52, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2753,6 +2808,10 @@ PrefabInstance:
     - target: {fileID: 7834658779728981838, guid: 6659b02de429fc84ab124d94578d7d69, type: 3}
       propertyPath: m_Name
       value: Player_Ganfald
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834658779728981838, guid: 6659b02de429fc84ab124d94578d7d69, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3625,6 +3684,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Novak
       objectReference: {fileID: 0}
+    - target: {fileID: 7834658779728981838, guid: f2c268bdc28a4c14d9d662a92b06049b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3777,7 +3840,7 @@ MonoBehaviour:
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 0
-  m_FillAmount: 0.767
+  m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
@@ -3842,6 +3905,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player_Shadowblade
       objectReference: {fileID: 0}
+    - target: {fileID: 7834658779728981838, guid: e98b5ff801b94f04599adf1fa63404e4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3852,6 +3919,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 525905101}
   - {fileID: 9180377918148725550}
   - {fileID: 1545587015}
   - {fileID: 1334692012}
