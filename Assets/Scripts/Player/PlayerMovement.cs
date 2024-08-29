@@ -35,7 +35,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         CaptureInput();
-        RotatePlayer();
+        RotatePlayer();      
     }
     private void FixedUpdate()
     {
@@ -45,6 +45,10 @@ public class PlayerMovement : MonoBehaviour
     private void MovePlayer()
     {
         rb2D.MovePosition(rb2D.position + moveDirection * (currrentSpeed * Time.fixedDeltaTime));
+    }
+    private void CaptureInput()
+    {
+        moveDirection = actions.Movement.Move.ReadValue<Vector2>().normalized;
     }
     private void Dash()
     {
@@ -83,11 +87,6 @@ public class PlayerMovement : MonoBehaviour
         Color color = spriteRenderer.color;
         color = new Color(color.r, color.g, color.b, alpha);
         spriteRenderer.color = color;
-    }
-
-    private void CaptureInput()
-    {
-        moveDirection = actions.Movement.Move.ReadValue<Vector2>().normalized;
     }
 
     private void OnEnable()
