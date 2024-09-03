@@ -29,6 +29,7 @@ public class Room : MonoBehaviour
         GetTiles();
     }
 
+    // Get Tiles
     private void GetTiles()
     {
         if (roomType == RoomType.RoomEntrance || roomType == RoomType.RoomFree)
@@ -36,7 +37,8 @@ public class Room : MonoBehaviour
             return;
         }
 
-        foreach (Vector3Int tilePos in extraTilemap.cellBounds.allPositionsWithin)
+        foreach (Vector3Int tilePos in extraTilemap.cellBounds.allPositionsWithin)  // Vector3Int: https://docs.unity3d.com/ScriptReference/Vector3Int.html
+
                                                                                     // cellBounds: https://docs.unity3d.com/ScriptReference/Tilemaps.Tilemap-cellBounds.html
                                                                                     // cellBounds.allPositionsWithin: Returns all positions that lie within the specified bounding box. These positions are usually represented as vectors.
         {
@@ -46,7 +48,11 @@ public class Room : MonoBehaviour
         }
     }
     
-    private void OnDrawGizmosSelected() {
+    // Using Gizmos to give visual debugging or setup aids in the Scene view. (Extra Game Object assigned)
+    private void OnDrawGizmosSelected() { 
+                                            // Gizmos: https://docs.unity3d.com/ScriptReference/Gizmos.html
+                                            // OnDrawGizmosSelected(): https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnDrawGizmosSelected.html
+
         if (useDebug == false)
         {
             return;
@@ -54,17 +60,20 @@ public class Room : MonoBehaviour
 
         if (tiles.Count > 0)
         {
-            foreach (KeyValuePair<Vector3, bool> tile in tiles)
+            foreach (KeyValuePair<Vector3, bool> tile in tiles) 
+                                                                // KeyValuePair: https://docs.unity.com/ugs/en-us/packages/com.unity.services.multiplayer/1.0/api/Unity.Services.Relay.Models.KeyValuePair
+                                                                // KeyValuePair: get value from data structures, ... through key-value 
+                                                                
             {
                 if (tile.Value) // true
                 {
                     Gizmos.color = Color.green;
-                    Gizmos.DrawWireCube(tile.Key, Vector3.one * 0.8f);
+                    Gizmos.DrawWireCube(tile.Key, Vector3.one * 0.8f); // DrawWireCube: https://docs.unity3d.com/ScriptReference/Gizmos.DrawWireCube.html
                 }
                 else
                 {
                     Gizmos.color = Color.red;
-                    Gizmos.DrawSphere(tile.Key, 0.3f);
+                    Gizmos.DrawSphere(tile.Key, 0.3f); // DrawSphere: https://docs.unity3d.com/ScriptReference/Gizmos.DrawSphere.html
                 }
             }
         }
