@@ -27,12 +27,13 @@ public class Room : MonoBehaviour
     private void Start()
     {
         GetTiles();
+        GenerateRoomUsingTemplate();
     }
 
     // Get Tiles
     private void GetTiles()
     {
-        if (roomType == RoomType.RoomEntrance || roomType == RoomType.RoomFree)
+        if (NormalRoom())
         {
             return;
         }
@@ -48,6 +49,47 @@ public class Room : MonoBehaviour
         }
     }
     
+    // generate rooms
+    private void GenerateRoomUsingTemplate()
+    {
+        if (NormalRoom())
+        {
+            return;
+        }
+
+        int randomIndex = Random.Range(0, LevelManager.Instance.RoomTemplates.Templates.Length);
+        Texture2D texture = LevelManager.Instance.RoomTemplates.Templates[randomIndex];
+        List<Vector3> positions = new List<Vector3>(tiles.Keys);
+        
+        for (int y = 0, a = 0; y < texture.height; y++)
+        {
+            for (int x = 0; x < texture.width; x++, a++)
+            {
+                Color pixelColor = texture.GetPixel(x, y);
+                foreach (RoomProp prop in LevelManager.Instance.RoomTemplates.PropsData)
+                {
+                    if (pixelColor == prop.PropColor)
+                    {
+                        GameObject propInstance = Instantiate(prop.PropPrefab, extraTilemap.transform);
+                        propInstance.transform.position = new Vector3(positions[a].x, positions[a].y, 0f);
+
+                        if (tiles.ContainsKey(positions[a]))
+                        {
+                            tiles[positions[a]] = false;
+                        }
+                    }
+                }
+            }
+        }
+
+    }
+
+    // Check room type
+    private bool NormalRoom()
+    {
+        return (roomType == RoomType.RoomEntrance || roomType == RoomType.RoomFree);
+    }
+
     // Using Gizmos to give visual debugging or setup aids in the Scene view. (Extra Game Object assigned)
     private void OnDrawGizmosSelected() { 
                                             // Gizmos: https://docs.unity3d.com/ScriptReference/Gizmos.html
