@@ -560,6 +560,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -2997941714882799948, guid: 88c402ee812dacc4395602332a7bce86, type: 3}
+      propertyPath: roomType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: -2997941714882799948, guid: 88c402ee812dacc4395602332a7bce86, type: 3}
+      propertyPath: useDebug
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2997941714882799948, guid: 88c402ee812dacc4395602332a7bce86, type: 3}
+      propertyPath: extraTilemap
+      value: 
+      objectReference: {fileID: 356567928}
     - target: {fileID: 766815254765544455, guid: 88c402ee812dacc4395602332a7bce86, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -609,6 +621,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 88c402ee812dacc4395602332a7bce86, type: 3}
+--- !u!1839735485 &356567928 stripped
+Tilemap:
+  m_CorrespondingSourceObject: {fileID: 4873668389691651723, guid: 88c402ee812dacc4395602332a7bce86, type: 3}
+  m_PrefabInstance: {fileID: 356567927}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &475567379 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4255503900912053044, guid: e98b5ff801b94f04599adf1fa63404e4, type: 3}
