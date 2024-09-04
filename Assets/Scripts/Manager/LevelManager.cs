@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+// Using Singleton Pattern 
 public class LevelManager : MonoBehaviour
 {
-    public static LevelManager Instance;
+    public static LevelManager Instance; 
     [SerializeField] private RoomTemplate roomTemplates;
     public RoomTemplate RoomTemplates => roomTemplates;
 

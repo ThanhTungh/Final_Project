@@ -49,7 +49,7 @@ public class Room : MonoBehaviour
         }
     }
     
-    // generate rooms
+    // Generate rooms
     private void GenerateRoomUsingTemplate()
     {
         if (NormalRoom())
@@ -65,15 +65,20 @@ public class Room : MonoBehaviour
         {
             for (int x = 0; x < texture.width; x++, a++)
             {
-                Color pixelColor = texture.GetPixel(x, y);
+                Color pixelColor = texture.GetPixel(x, y); // get hexadecimal color from texture
+                                                           // GetPixel(): https://docs.unity3d.com/ScriptReference/Texture2D.GetPixel.html
+
                 foreach (RoomProp prop in LevelManager.Instance.RoomTemplates.PropsData)
                 {
                     if (pixelColor == prop.PropColor)
                     {
-                        GameObject propInstance = Instantiate(prop.PropPrefab, extraTilemap.transform);
+                        GameObject propInstance = Instantiate(prop.PropPrefab, extraTilemap.transform); // Instantiate: https://docs.unity3d.com/ScriptReference/Object.Instantiate.html
+                                                                                                        
+                                                                                                        // transform: include position, rotation, scale... in Unity
+
                         propInstance.transform.position = new Vector3(positions[a].x, positions[a].y, 0f);
 
-                        if (tiles.ContainsKey(positions[a]))
+                        if (tiles.ContainsKey(positions[a])) // ContainsKey: Determines whether the Hashtable contains a specific key.
                         {
                             tiles[positions[a]] = false;
                         }
