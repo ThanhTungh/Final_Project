@@ -5,7 +5,7 @@ using UnityEngine;
 public class RoomTemplate : ScriptableObject // ScriptableObject: https://docs.unity3d.com/Manual/class-ScriptableObject.html
 {
     [Header("Templates")]
-    public Texture2D[] Templates;
+    public Texture2D[] Templates; // Texture2D: Renderer image of this object (https://docs.unity3d.com/ScriptReference/Texture2D.html)
 
     [Header("Props")]
     public RoomProp[] PropsData;
