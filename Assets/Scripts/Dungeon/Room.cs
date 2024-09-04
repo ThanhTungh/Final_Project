@@ -20,13 +20,22 @@ public class Room : MonoBehaviour
     [Header("Grid")]
     [SerializeField] private Tilemap extraTilemap; // https://learn.unity.com/tutorial/introduction-to-tilemaps#5f35935dedbc2a0894536cfb
     
+    [Header("Doors")]
+    [SerializeField] private Transform[] posDoorNS;
+    [SerializeField] private Transform[] posDoorWE;
+
+
     // Position(Key) - Free/Not Free(Value)
     private Dictionary<Vector3, bool> tiles = new Dictionary<Vector3, bool>();
+
+    private List<Door> doorList = new List<Door>();
+
 
     // Start is called before the first frame update
     private void Start()
     {
         GetTiles();
+        CreateDoors();
         GenerateRoomUsingTemplate();
     }
 
@@ -87,6 +96,36 @@ public class Room : MonoBehaviour
             }
         }
 
+    }
+
+    // Create doors in room of each room
+    private void CreateDoors()
+    {
+        if (posDoorNS.Length > 0)
+        {
+            for (int i = 0; i < posDoorNS.Length; i++)
+            {
+                RegisterDoor(LevelManager.Instance.DungeonLibrary.DoorNS, posDoorNS[i]);
+            }
+        }
+
+        if (posDoorWE.Length > 0)
+        {
+            for (int i = 0; i < posDoorWE.Length; i++)
+            {
+                RegisterDoor(LevelManager.Instance.DungeonLibrary.DoorWE, posDoorWE[i]);
+            }
+        }
+
+
+    }
+
+    // Create a door 
+    private void RegisterDoor(GameObject doorPrefab, Transform objTransform)
+    {
+        GameObject doorGO = Instantiate(doorPrefab, objTransform.position, Quaternion.identity, objTransform);
+        Door door = doorGO.GetComponent<Door>();
+        doorList.Add(door);
     }
 
     // Check room type
