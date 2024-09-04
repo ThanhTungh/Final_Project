@@ -15,9 +15,38 @@ public class LevelManager : MonoBehaviour
     public RoomTemplate RoomTemplates => roomTemplates;
     public DungeonLibrary DungeonLibrary => dungeonLibrary;
 
+    private Room currentRoom;
 
     private void Awake() // Awake(): https://docs.unity3d.com/ScriptReference/MonoBehaviour.Awake.html
     { 
         Instance = this;
     }
+
+    /* 
+
+        event Action<Room> OnPlayerEnterEvent
+
+    */
+
+    private void PlayerEnterEventCallback(Room room)
+    {
+        currentRoom = room;
+
+        if (currentRoom.RoomCompleted == false)
+        {
+            currentRoom.CloseDoors();
+        }
+    }
+
+    private void OnEnable() 
+    {
+        Room.OnPlayerEnterEvent += PlayerEnterEventCallback;
+    }
+
+    private void OnDisable() 
+    {
+        Room.OnPlayerEnterEvent -= PlayerEnterEventCallback;
+    }
+
+    /* -------------------------------------------------------------------------------------------------------- */
 }

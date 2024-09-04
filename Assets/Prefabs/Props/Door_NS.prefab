@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6496586430023296048}
   - component: {fileID: 1131000174801812978}
+  - component: {fileID: -1448802336780313174}
   m_Layer: 0
   m_Name: Door_NS
   m_TagString: Untagged
@@ -54,6 +55,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-1448802336780313174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131206747434318781}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c24bd7b859405dc41a287faa4e7cf46a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3879382132717235984
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +159,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3879382132717235984}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -182,5 +195,5 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.0001, y: 0.0001}
+  m_Size: {x: 4, y: 2}
   m_EdgeRadius: 0

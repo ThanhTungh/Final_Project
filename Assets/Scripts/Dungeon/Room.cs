@@ -1,7 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using Random = UnityEngine.Random;
 
 public enum RoomType
 {
@@ -13,6 +15,10 @@ public enum RoomType
 
 public class Room : MonoBehaviour
 {
+
+    public static event Action<Room> OnPlayerEnterEvent; 
+
+
     [Header("Config")]
     [SerializeField] private bool useDebug;
     [SerializeField] private RoomType roomType;
@@ -23,6 +29,10 @@ public class Room : MonoBehaviour
     [Header("Doors")]
     [SerializeField] private Transform[] posDoorNS;
     [SerializeField] private Transform[] posDoorWE;
+
+
+    // check Room is completed?
+    public bool RoomCompleted { get; set; }
 
 
     // Position(Key) - Free/Not Free(Value)
@@ -58,7 +68,37 @@ public class Room : MonoBehaviour
         }
     }
     
-    // Generate rooms
+    /*
+
+        Open/Close Door
+
+    */
+
+    public void CloseDoors()
+    {
+        for (int i = 0; i < doorList.Count; i++)
+        {
+            doorList[i].ShowCloseAnimation();
+        }
+    }
+
+    public void OpenDoors()
+    {
+        for (int i = 0; i < doorList.Count; i++)
+        {
+            doorList[i].ShowOpenAnimation();
+        }
+    }
+
+    /* -------------------------------------------------------------------------------------------------------- */
+
+
+    /*
+
+        Generate rooms
+
+    */
+
     private void GenerateRoomUsingTemplate()
     {
         if (NormalRoom())
@@ -97,6 +137,8 @@ public class Room : MonoBehaviour
         }
 
     }
+
+    /* -------------------------------------------------------------------------------------------------------- */
 
 
     /* 
@@ -141,6 +183,24 @@ public class Room : MonoBehaviour
     {
         return (roomType == RoomType.RoomEntrance || roomType == RoomType.RoomFree);
     }
+
+    // Triggle when player go to room
+    private void OnTriggerEnter2D(Collider2D other) 
+    {
+        if (NormalRoom())
+        {
+            return;
+        }
+
+        if (other.CompareTag("Player"))
+        {
+            if (OnPlayerEnterEvent != null)
+            {
+                OnPlayerEnterEvent.Invoke(this);
+            }
+        }
+    }
+
 
     // Using Gizmos to give visual debugging or setup aids in the Scene view. (Extra Game Object assigned)
     private void OnDrawGizmosSelected() { 
