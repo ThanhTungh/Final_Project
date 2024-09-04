@@ -16,8 +16,8 @@ public class LevelManager : MonoBehaviour
     public DungeonLibrary DungeonLibrary => dungeonLibrary;
 
 
-    private void Awake() { 
-                            // Awake(): https://docs.unity3d.com/ScriptReference/MonoBehaviour.Awake.html
+    private void Awake() // Awake(): https://docs.unity3d.com/ScriptReference/MonoBehaviour.Awake.html
+    { 
         Instance = this;
     }
 }

@@ -98,7 +98,12 @@ public class Room : MonoBehaviour
 
     }
 
-    // Create doors in room of each room
+
+    /* 
+    
+        Create each door with each room in each level
+
+    */
     private void CreateDoors()
     {
         if (posDoorNS.Length > 0)
@@ -120,13 +125,16 @@ public class Room : MonoBehaviour
 
     }
 
-    // Create a door 
     private void RegisterDoor(GameObject doorPrefab, Transform objTransform)
     {
-        GameObject doorGO = Instantiate(doorPrefab, objTransform.position, Quaternion.identity, objTransform);
+        GameObject doorGO = Instantiate(doorPrefab, objTransform.position, Quaternion.identity, objTransform); // Instantiate: https://docs.unity3d.com/ScriptReference/Object.Instantiate.html
+                                                                                                               // Quaternion: https://docs.unity3d.com/ScriptReference/Quaternion.html
+
         Door door = doorGO.GetComponent<Door>();
-        doorList.Add(door);
+        doorList.Add(door); // add a clone "door" from Instantiate()
     }
+
+    /* -------------------------------------------------------------------------------------------------------- */
 
     // Check room type
     private bool NormalRoom()
