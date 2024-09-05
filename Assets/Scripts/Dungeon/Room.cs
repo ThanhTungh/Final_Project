@@ -202,7 +202,7 @@ public class Room : MonoBehaviour
     }
 
 
-    // Using Gizmos to give visual debugging or setup aids in the Scene view. (Extra Game Object assigned)
+    // Using Gizmos to give visual debugging or setup aids in the Scene view. (Extra GameObject assigned)
     private void OnDrawGizmosSelected() { 
                                             // Gizmos: https://docs.unity3d.com/ScriptReference/Gizmos.html
                                             // OnDrawGizmosSelected(): https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnDrawGizmosSelected.html
