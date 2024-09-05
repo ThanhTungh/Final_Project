@@ -7,6 +7,9 @@ public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance; 
 
+    [Header("Temp")]
+    [SerializeField] private GameObject player;
+
     [Header("Config")]
     [SerializeField] private RoomTemplate roomTemplates;
     [SerializeField] private DungeonLibrary dungeonLibrary;
@@ -49,10 +52,39 @@ public class LevelManager : MonoBehaviour
 
         Destroy(currentDungeonGO);
         CreateDungeon();
+        PositionPlayer();
     }
 
 
     /* -------------------------------------------------------------------------------------------------------- */
+
+
+    /* 
+        Position Player when start a dungeon
+    */
+    private void PositionPlayer()
+    {
+        Room[] dungeonRooms = currentDungeonGO.GetComponentsInChildren<Room>(); // GetComponentsInChildren<T>: https://docs.unity3d.com/ScriptReference/Component.GetComponentsInChildren.html
+        Room entranceRoom = null;
+        for (int i = 0; i < dungeonRooms.Length; i++)
+        {
+            if (dungeonRooms[i].RoomType == RoomType.RoomEntrance)
+            {
+                entranceRoom = dungeonRooms[i];
+            }
+        }
+
+        if (entranceRoom != null)
+        {
+            if (player != null)
+            {
+                player.transform.position = entranceRoom.transform.position;
+            }
+        }
+    }
+
+    /* -------------------------------------------------------------------------------------------------------- */
+
 
 
     /* 

@@ -34,6 +34,8 @@ public class Room : MonoBehaviour
     // check Room is completed?
     public bool RoomCompleted { get; set; }
 
+    public RoomType RoomType => roomType; 
+
 
     // Position(Key) - Free/Not Free(Value)
     private Dictionary<Vector3, bool> tiles = new Dictionary<Vector3, bool>();
