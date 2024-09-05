@@ -7,8 +7,14 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+
+    public static UIManager Instance;
+
+
     [Header("References")]
     [SerializeField] private PlayerConfig playerConfig;
+
+
     [Header("Player UI")]
     [SerializeField] private Image healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
@@ -16,10 +22,22 @@ public class UIManager : MonoBehaviour
     [SerializeField] private TextMeshProUGUI armorText;
     [SerializeField] private Image energyBar;
     [SerializeField] private TextMeshProUGUI energyText;
+
+
+    [Header("UI Extra")]
+    [SerializeField] private CanvasGroup fadePanel;
+
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     void Update()
     {
         UpdatePlayerUI();
     }
+
     private void UpdatePlayerUI()
     {
         //Hiệu ứng mượt mà: Mathf.Lerp (Linear Interpolation) giúp giá trị healthBar.fillAmount thay đổi một cách mượt mà từ giá trị hiện tại đến giá trị mong muốn (playerConfig.CurrentHealth / playerConfig.MaxHealth). Điều này tạo ra một hiệu ứng "trượt" khi thanh máu giảm hoặc tăng, thay vì thay đổi đột ngột.
@@ -34,4 +52,16 @@ public class UIManager : MonoBehaviour
         armorBar.fillAmount = Mathf.Lerp(armorBar.fillAmount, playerConfig.CurrentArmor / playerConfig.MaxArmor, 10f * Time.deltaTime);
         armorText.text = playerConfig.CurrentArmor + " / " + playerConfig.MaxArmor;
     }
+
+
+    /* 
+        Load Fade UI
+    */
+    public void FadeNewDungeon(float value)
+    {
+        StartCoroutine(Helpers.IEFade(fadePanel, value, 1.5f));
+    }
+
+    /* -------------------------------------------------------------------------------------------------------- */
+    
 }

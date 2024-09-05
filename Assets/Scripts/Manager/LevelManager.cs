@@ -86,7 +86,22 @@ public class LevelManager : MonoBehaviour
     /* -------------------------------------------------------------------------------------------------------- */
 
 
+    /* 
 
+        IEnumerator (Coroutine) of Fade alpha in UIManager when changing each dungeon
+
+    */
+    private IEnumerator IEContinueDungeon()
+    {
+        UIManager.Instance.FadeNewDungeon(1f);
+        yield return new WaitForSeconds(2f);
+        ContinueDungeon();
+        UIManager.Instance.FadeNewDungeon(0f);
+    }
+
+    /* -------------------------------------------------------------------------------------------------------- */
+    
+    
     /* 
 
         event Action<Room> OnPlayerEnterEvent
@@ -113,7 +128,7 @@ public class LevelManager : MonoBehaviour
     */
     private void PortalEventCallback()
     {
-        ContinueDungeon();
+        StartCoroutine(IEContinueDungeon());
     }
 
 
