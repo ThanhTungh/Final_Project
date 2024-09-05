@@ -16,7 +16,7 @@ public enum RoomType
 public class Room : MonoBehaviour
 {
 
-    public static event Action<Room> OnPlayerEnterEvent; 
+    public static event Action<Room> OnPlayerEnterEvent; // Events.UnityAction: https://docs.unity3d.com/ScriptReference/Events.UnityAction.html
 
 
     [Header("Config")]
