@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashTime = 0.3f;
     [SerializeField] private float transperency = 0.3f;
 
+    
     private SpriteRenderer spriteRenderer; 
     private Rigidbody2D rb2D;
     private PlayerActions actions;
