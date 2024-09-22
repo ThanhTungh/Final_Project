@@ -9,16 +9,19 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private Weapon initialWeapon;
     [SerializeField] private Transform weaponPos;
 
+    private PlayerActions actions; 
     private PlayerMovement playerMovement;
     private Weapon currentWeapon;
 
     private void Awake()
     {
+        actions = new PlayerActions();
         playerMovement = GetComponent<PlayerMovement>();
     }
     
     void Start()
     {
+        actions.Weapon.Shoot.performed += context => ShootWeapon();
         CreateWeapon(initialWeapon);
     }
 
@@ -33,6 +36,14 @@ public class PlayerWeapon : MonoBehaviour
     {
         currentWeapon = Instantiate(weaponPrefab, weaponPos.position, Quaternion.identity, weaponPos);
         
+    }
+    private void ShootWeapon()
+    {
+        if (currentWeapon == null)
+        {
+            return;
+        }
+        currentWeapon.UseWeapon();
     }
 
     private void RotateWeapon(Vector3 direction)
@@ -54,5 +65,12 @@ public class PlayerWeapon : MonoBehaviour
         }
         currentWeapon.transform.eulerAngles = new Vector3(0, 0, angle);
     }
-    
+    private void OnEnable()
+    {
+        actions.Enable();
+    }
+    private void OnDisable()
+    {
+        actions.Disable();
+    }
 }

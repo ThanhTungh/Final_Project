@@ -1988,7 +1988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9108d0d84acc64bba9a3e86aa5b8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialWeapon: {fileID: 4897419239000812663, guid: 394ca997477fa3f428169af564b07bb5, type: 3}
+  initialWeapon: {fileID: 1876410155204910431, guid: 394ca997477fa3f428169af564b07bb5, type: 3}
   weaponPos: {fileID: 361019201}
 --- !u!1 &1767027661
 GameObject:
@@ -2442,6 +2442,10 @@ PrefabInstance:
     - target: {fileID: 7834658779728981838, guid: e98b5ff801b94f04599adf1fa63404e4, type: 3}
       propertyPath: m_Name
       value: Player_Shadowblade
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834658779728981838, guid: e98b5ff801b94f04599adf1fa63404e4, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
