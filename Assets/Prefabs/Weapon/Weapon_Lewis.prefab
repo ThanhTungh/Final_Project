@@ -183,5 +183,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76fb2e64e10b9374eb7a30af9c0b1d40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shootPos: {fileID: 0}
-  itemWeapon: {fileID: 0}
+  shootPos: {fileID: 8599306615044429819}
+  itemWeapon: {fileID: 11400000, guid: 5b93be0a73c129541a0597dc62c2a734, type: 2}
+  projectilePrefab: {fileID: 4442789376850973845, guid: b001275cc16c1c844a5dc921c096a118, type: 3}
