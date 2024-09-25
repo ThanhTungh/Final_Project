@@ -10,12 +10,14 @@ public class PlayerWeapon : MonoBehaviour
     [SerializeField] private Transform weaponPos;
 
     private PlayerActions actions; 
+    private PlayerEnergy playerEnergy;
     private PlayerMovement playerMovement;
     private Weapon currentWeapon;
 
     private void Awake()
     {
         actions = new PlayerActions();
+        playerEnergy = GetComponent<PlayerEnergy>();
         playerMovement = GetComponent<PlayerMovement>();
     }
     
@@ -39,11 +41,17 @@ public class PlayerWeapon : MonoBehaviour
     }
     private void ShootWeapon()
     {
-        if (currentWeapon == null)
+        if (currentWeapon == null)//khong co weapon nao thi return
+        {
+            return;
+        }
+        if (CanUseWeapon() == false)//khong co energy hoac khong the su dung weapon thi return
         {
             return;
         }
         currentWeapon.UseWeapon();
+        playerEnergy.UseEnergy(currentWeapon.ItemWeapon.RequireEnergy);
+        //acces require energy de tru energy khi dung weapon
     }
 
     private void RotateWeapon(Vector3 direction)
@@ -64,6 +72,18 @@ public class PlayerWeapon : MonoBehaviour
             //currentWeapon.transform.localScale = new Vector3(-1, 1, 1);
         }
         currentWeapon.transform.eulerAngles = new Vector3(0, 0, angle);
+    }
+    private bool CanUseWeapon()
+    {
+        if(currentWeapon.ItemWeapon.WeaponType == WeaponType.Gun && playerEnergy.CanUseEnergy)
+        {
+            return true;
+        }
+        if(currentWeapon.ItemWeapon.WeaponType == WeaponType.Melee)
+        {
+            return true;
+        }
+        return false;
     }
     private void OnEnable()
     {

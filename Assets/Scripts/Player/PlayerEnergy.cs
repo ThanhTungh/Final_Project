@@ -6,6 +6,13 @@ public class PlayerEnergy : MonoBehaviour
 {
     [Header("Player")]
     [SerializeField] private PlayerConfig playerConfig;
+
+    public bool CanUseEnergy
+    {
+        get {return playerConfig.CurrentEnergy > 0f;}
+    }
+
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))
