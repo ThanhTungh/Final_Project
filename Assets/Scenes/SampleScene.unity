@@ -1988,7 +1988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9108d0d84acc64bba9a3e86aa5b8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialWeapon: {fileID: 193920345671942530, guid: f59fe16e440666f46b8d313f62f39973, type: 3}
+  initialWeapon: {fileID: -7279203652066616138, guid: ac7815ee5ecf06f4a8f0e3b337a5d894, type: 3}
   weaponPos: {fileID: 361019201}
 --- !u!1 &1767027661
 GameObject:
