@@ -679,7 +679,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af94d6742dcb99e41a93491fc9fcb176, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerConfig: {fileID: 11400000, guid: 636b1e25330db5f40ae3689b9cc685f4, type: 2}
+  playerConfig: {fileID: 11400000, guid: cf79df181d02a9443add5d10362d15e5, type: 2}
   healthBar: {fileID: 834540438}
   healthText: {fileID: 133152418}
   armorBar: {fileID: 2101217319}
@@ -1526,11 +1526,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4255503900912053044, guid: ff9c62e537275c94d88041a7910247c6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 7.71
+      value: 4.12
       objectReference: {fileID: 0}
     - target: {fileID: 4255503900912053044, guid: ff9c62e537275c94d88041a7910247c6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.63
+      value: 1.68
       objectReference: {fileID: 0}
     - target: {fileID: 4255503900912053044, guid: ff9c62e537275c94d88041a7910247c6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1988,7 +1988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ed9108d0d84acc64bba9a3e86aa5b8a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialWeapon: {fileID: 4897419239000812663, guid: 394ca997477fa3f428169af564b07bb5, type: 3}
+  initialWeapon: {fileID: 6071199945241665620, guid: d4cc9034dca7d6247b86305c40f4a2c8, type: 3}
   weaponPos: {fileID: 361019201}
 --- !u!1 &1767027661
 GameObject:
@@ -2393,11 +2393,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4255503900912053044, guid: e98b5ff801b94f04599adf1fa63404e4, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.299
       objectReference: {fileID: 0}
     - target: {fileID: 4255503900912053044, guid: e98b5ff801b94f04599adf1fa63404e4, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0.351
       objectReference: {fileID: 0}
     - target: {fileID: 4255503900912053044, guid: e98b5ff801b94f04599adf1fa63404e4, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2439,9 +2439,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -0.34
       objectReference: {fileID: 0}
+    - target: {fileID: 6691276352897121555, guid: e98b5ff801b94f04599adf1fa63404e4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7834658779728981838, guid: e98b5ff801b94f04599adf1fa63404e4, type: 3}
       propertyPath: m_Name
       value: Player_Shadowblade
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834658779728981838, guid: e98b5ff801b94f04599adf1fa63404e4, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7834658779728981838, guid: e98b5ff801b94f04599adf1fa63404e4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

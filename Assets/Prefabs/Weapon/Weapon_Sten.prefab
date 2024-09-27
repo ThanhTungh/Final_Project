@@ -124,8 +124,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5326169700217502497}
-  - component: {fileID: 5254410752569397072}
   - component: {fileID: 3185358948467091809}
+  - component: {fileID: 5611447514353228822}
   m_Layer: 0
   m_Name: Weapon_Sten
   m_TagString: Untagged
@@ -150,18 +150,6 @@ Transform:
   - {fileID: 7232734733863170712}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5254410752569397072
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8684710058690701585}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1701c65f87e394a4c92f81d74b78a361, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &3185358948467091809
 Animator:
   serializedVersion: 5
@@ -183,3 +171,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &5611447514353228822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8684710058690701585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fb2e64e10b9374eb7a30af9c0b1d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootPos: {fileID: 7232734733863170712}
+  itemWeapon: {fileID: 11400000, guid: 3dc009f8bf23e8a4ba5585f3e8fd736e, type: 2}
+  projectilePrefab: {fileID: 6898995920794493206, guid: 39ba3066d6666de4a94a77900f689ad9, type: 3}

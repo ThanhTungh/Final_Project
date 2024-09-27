@@ -9,8 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1343534127065623981}
-  - component: {fileID: 8633717165537681213}
   - component: {fileID: 1893513313921173305}
+  - component: {fileID: -3930344188177527404}
   m_Layer: 0
   m_Name: Weapon_RPK
   m_TagString: Untagged
@@ -35,18 +35,6 @@ Transform:
   - {fileID: 2940135484962155377}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8633717165537681213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1215574924902766659}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1701c65f87e394a4c92f81d74b78a361, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &1893513313921173305
 Animator:
   serializedVersion: 5
@@ -68,6 +56,21 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-3930344188177527404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1215574924902766659}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fb2e64e10b9374eb7a30af9c0b1d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootPos: {fileID: 2940135484962155377}
+  itemWeapon: {fileID: 11400000, guid: ddb95498e8cf8414b8b617a3aaa6cc7f, type: 2}
+  projectilePrefab: {fileID: 6898995920794493206, guid: da3083131c57f2647a6f857ed28b475c, type: 3}
 --- !u!1 &8338796151718090667
 GameObject:
   m_ObjectHideFlags: 0

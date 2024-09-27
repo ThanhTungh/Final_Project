@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    [Header("Config")]
+    [SerializeField] protected Transform shootPos;
+    [SerializeField] protected ItemWeapon itemWeapon;
+
+    public ItemWeapon ItemWeapon//
     {
-        
+        get { return itemWeapon; }//propertty access itemWeapon
+    }
+    private Animator animator;
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected void PlayShootAnimation()
     {
-        
+        animator.SetTrigger("Shoot");
+    }
+    public virtual void UseWeapon()//dung virtual de override method nay o class con gun weapon va melee weapon
+    {
+
     }
 }

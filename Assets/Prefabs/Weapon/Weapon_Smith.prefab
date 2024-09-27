@@ -124,8 +124,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 81241669620683504}
-  - component: {fileID: 4624156751355572139}
   - component: {fileID: 3812830605860878339}
+  - component: {fileID: -7279203652066616138}
   m_Layer: 0
   m_Name: Weapon_Smith
   m_TagString: Untagged
@@ -150,18 +150,6 @@ Transform:
   - {fileID: 5764532294560279463}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4624156751355572139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7175147663851820648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1701c65f87e394a4c92f81d74b78a361, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!95 &3812830605860878339
 Animator:
   serializedVersion: 5
@@ -183,3 +171,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &-7279203652066616138
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7175147663851820648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fb2e64e10b9374eb7a30af9c0b1d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shootPos: {fileID: 5764532294560279463}
+  itemWeapon: {fileID: 11400000, guid: 0ebc2394a692f9a4094f8bf18358518e, type: 2}
+  projectilePrefab: {fileID: 6898995920794493206, guid: 96eb5beec2d945d4d96bc54b835bbcc5, type: 3}
