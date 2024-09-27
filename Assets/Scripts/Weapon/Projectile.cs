@@ -14,8 +14,12 @@ public class Projectile : MonoBehaviour
         transform.Translate(Direction * speed * Time.deltaTime);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D other)
     {
+        if(other.GetComponent<ITakeDamage>() != null)
+        {
+            other.GetComponent<ITakeDamage>().TakeDamage(1f);
+        }
         Destroy(gameObject);
     }
 }
