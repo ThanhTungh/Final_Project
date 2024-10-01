@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1557066961
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 10
   m_Sprite: {fileID: 1858702564, guid: 81183d4d90d9b1947bc32467ceade557, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -145,7 +145,7 @@ Transform:
   m_GameObject: {fileID: 6012005579334994236}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.014, y: -0.34, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -162,7 +162,6 @@ GameObject:
   - component: {fileID: 1227233817014855691}
   - component: {fileID: 4244140788802275877}
   - component: {fileID: 5477078710066779050}
-  - component: {fileID: 7184239100994775639}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -244,19 +243,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6691276352897121555}
   m_Enabled: 1
---- !u!114 &7184239100994775639
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6691276352897121555}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 063a673993cc9af4c9a1d6e8d661c042, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 0}
 --- !u!1 &7563589924532675713
 GameObject:
   m_ObjectHideFlags: 0
@@ -328,7 +314,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1557066961
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 2
   m_Sprite: {fileID: 1191969320, guid: d112e82efa2d99440af69a7e6332d68e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -356,7 +342,8 @@ GameObject:
   - component: {fileID: 5740852476842439273}
   - component: {fileID: 4509670703746446253}
   - component: {fileID: 1613860090642280255}
-  m_Layer: 0
+  - component: {fileID: 4105191181761562837}
+  m_Layer: 7
   m_Name: Player_Shadowblade
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -517,3 +504,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerConfig: {fileID: 11400000, guid: cf79df181d02a9443add5d10362d15e5, type: 2}
+--- !u!114 &4105191181761562837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7834658779728981838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed9108d0d84acc64bba9a3e86aa5b8a4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPos: {fileID: 5799104823894267414}

@@ -8,7 +8,7 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField] private PlayerConfig playerConfig;
     private void Update(){
         //test damage and recover
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.T))
         {
             TakeDamage(1);
         }

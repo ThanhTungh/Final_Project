@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 479061b188cfbdc4bb1eb34f6c8fa166, type: 3}
   m_Name: Weapon_Thompson
   m_EditorClassIdentifier: 
-  ID: Glock
+  ID: Thompson
   Icon: {fileID: 1261193747, guid: 619520a1b532b814e9a4903e38cf799e, type: 3}
   WeaponType: 1
   Rarity: 2
@@ -21,3 +21,4 @@ MonoBehaviour:
   TimeBetweenShots: 0
   MinSpread: -3
   MaxSpread: 3
+  WeaponPrefab: {fileID: 6779969014800753643, guid: a97e140ced0d14f459753b4cc62a0c6b, type: 3}

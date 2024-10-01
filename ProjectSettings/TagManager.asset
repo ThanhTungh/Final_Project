@@ -50,6 +50,9 @@ TagManager:
   - name: Prop
     uniqueID: 3452586297
     locked: 0
+  - name: Item
+    uniqueID: 243720215
+    locked: 0
   - name: Player
     uniqueID: 2737900335
     locked: 0

@@ -91,6 +91,10 @@ public class PlayerMovement : MonoBehaviour
         spriteRenderer.color = color;
     }
 
+    public void FaceRightDirection()
+    {
+        spriteRenderer.flipX = false;
+    }
     private void OnEnable()
     {
         actions.Enable();
