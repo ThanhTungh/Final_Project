@@ -14,7 +14,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private RoomTemplate roomTemplates;
     [SerializeField] private DungeonLibrary dungeonLibrary;
 
-
+    public GameObject Player => player;
     public RoomTemplate RoomTemplates => roomTemplates;
     public DungeonLibrary DungeonLibrary => dungeonLibrary;
 

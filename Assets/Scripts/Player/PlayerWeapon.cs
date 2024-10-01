@@ -6,13 +6,15 @@ using UnityEngine;
 public class PlayerWeapon : MonoBehaviour
 {
     [Header("Config")]
-    [SerializeField] private Weapon initialWeapon;
     [SerializeField] private Transform weaponPos;
 
     private PlayerActions actions; 
     private PlayerEnergy playerEnergy;
     private PlayerMovement playerMovement;
     private Weapon currentWeapon;
+
+    private int WeaponIndex;   //0-1 
+    private Weapon[] equippedWeapons = new Weapon[2];
 
     private void Awake()
     {
@@ -24,11 +26,14 @@ public class PlayerWeapon : MonoBehaviour
     void Start()
     {
         actions.Weapon.Shoot.performed += context => ShootWeapon();
-        CreateWeapon(initialWeapon);
     }
 
     void Update()
     {
+        if(currentWeapon == null)
+        {
+            return;
+        }   
         if (playerMovement.MoveDirection != Vector2.zero)
         {
             RotateWeapon(playerMovement.MoveDirection);
@@ -37,6 +42,28 @@ public class PlayerWeapon : MonoBehaviour
     private void CreateWeapon(Weapon weaponPrefab)
     {
         currentWeapon = Instantiate(weaponPrefab, weaponPos.position, Quaternion.identity, weaponPos);
+        equippedWeapons[WeaponIndex] = currentWeapon;       
+    }
+
+    public void EquipWeapon(Weapon weapon)
+    {
+        if (equippedWeapons[0] == null)
+        {
+            CreateWeapon(weapon);
+            return;
+        }
+        if (equippedWeapons[1] == null)
+        {
+            WeaponIndex++;
+            equippedWeapons[0].gameObject.SetActive(false);
+            CreateWeapon(weapon);
+            return;
+        }
+        //Destroy current weapon
+        currentWeapon.DestroyWeapon();
+        equippedWeapons[WeaponIndex] = null;
+
+        CreateWeapon(weapon);
         
     }
     private void ShootWeapon()

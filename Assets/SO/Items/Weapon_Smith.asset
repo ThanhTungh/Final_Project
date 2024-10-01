@@ -21,3 +21,4 @@ MonoBehaviour:
   TimeBetweenShots: 0
   MinSpread: -5
   MaxSpread: 5
+  WeaponPrefab: {fileID: -7279203652066616138, guid: ac7815ee5ecf06f4a8f0e3b337a5d894, type: 3}

@@ -25,9 +25,11 @@ public class ItemWeapon : ItemData
     public float MinSpread;
     public float MaxSpread;
 
+    [Header("Weapon")]
+    public Weapon WeaponPrefab;
+
     public override void Pickup()
     {
-        base.Pickup();
-        Debug.Log("Picked up weapon: " + name);
+        LevelManager.Instance.Player.GetComponent<PlayerWeapon>().EquipWeapon(WeaponPrefab);
     }
 }
