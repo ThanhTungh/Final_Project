@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEditor.U2D.Aseprite;
 using UnityEngine;
 
@@ -26,6 +27,7 @@ public class PlayerWeapon : MonoBehaviour
     void Start()
     {
         actions.Weapon.Shoot.performed += context => ShootWeapon();
+        actions.Interactions.ChangeWeapon.performed += context => ChangeWeapon();
     }
 
     void Update()
@@ -65,6 +67,25 @@ public class PlayerWeapon : MonoBehaviour
 
         CreateWeapon(weapon);
         
+    }
+    private void ChangeWeapon()
+    {
+        if (equippedWeapons[0] == null)
+        {
+            return;
+        }
+        if (equippedWeapons[1] == null)
+        {
+            return;
+        }
+        for (int i = 0; i < equippedWeapons.Length; i++)
+        {
+            equippedWeapons[i].gameObject.SetActive(false);
+        }
+        WeaponIndex = 1 - WeaponIndex;
+        currentWeapon = equippedWeapons[WeaponIndex];
+        currentWeapon.gameObject.SetActive(true);
+        ResetWeaponForChange();
     }
     private void ShootWeapon()
     {
@@ -111,6 +132,16 @@ public class PlayerWeapon : MonoBehaviour
             return true;
         }
         return false;
+    }
+
+    public void ResetWeaponForChange()
+    {
+        Transform weaponTransform = currentWeapon.transform;
+        weaponTransform.rotation = Quaternion.identity;
+        weaponTransform.localScale = Vector3.one;
+        weaponPos.rotation = Quaternion.identity;
+        weaponPos.localScale = Vector3.one;
+        playerMovement.FaceRightDirection();
     }
     private void OnEnable()
     {
