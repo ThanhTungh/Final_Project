@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdea2c33284929c48a449030f981905f, type: 3}
+  m_Name: ChestItems_Level_1
+  m_EditorClassIdentifier: 
+  AvailableItems:
+  - {fileID: 4022603871928956713, guid: d98539536b152ce4490df36283f151ba, type: 3}
+  - {fileID: 4022603871928956713, guid: 8ac52f28e01e5b04b9a13b207fd81aff, type: 3}
+  - {fileID: 4022603871928956713, guid: 0cd95a898fbac6249817a0c29a58239e, type: 3}
+  - {fileID: 4022603871928956713, guid: b527daa1d3d84ab4794678e18965cb0e, type: 3}
+  - {fileID: 4022603871928956713, guid: 2df8c84c7695dee4d91e7559d4893a26, type: 3}
+  - {fileID: 4022603871928956713, guid: 65b3242ea614aa74c9cf9f0926aada4f, type: 3}
+  - {fileID: 4022603871928956713, guid: c37ae9e3f6552034f98da49f93436472, type: 3}
+  - {fileID: 4022603871928956713, guid: f2ce66e55bb6ecc45aae65a31ef5a126, type: 3}

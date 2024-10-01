@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using Random = UnityEngine.Random;
 // Using Singleton Pattern 
 public class LevelManager : MonoBehaviour
 {
@@ -23,6 +23,7 @@ public class LevelManager : MonoBehaviour
     private int currentDungeonIndex;
     private GameObject currentDungeonGO;
 
+    private List<GameObject> currentLevelChestItems = new List<GameObject>();
     private void Awake() // Awake(): https://docs.unity3d.com/ScriptReference/MonoBehaviour.Awake.html
     { 
         Instance = this;
@@ -39,6 +40,7 @@ public class LevelManager : MonoBehaviour
     private void CreateDungeon()
     {
         currentDungeonGO = Instantiate(dungeonLibrary.Levels[currentLevelIndex].Dungeons[currentDungeonIndex], transform);
+        currentLevelChestItems = new List<GameObject>(dungeonLibrary.Levels[currentLevelIndex].ChestItems.AvailableItems);
     }
 
     private void ContinueDungeon()
@@ -84,7 +86,13 @@ public class LevelManager : MonoBehaviour
     }
 
     /* -------------------------------------------------------------------------------------------------------- */
-
+    public GameObject GetRandomItemForChest()
+    {
+        int randomIndex = Random.Range(0, currentLevelChestItems.Count);
+        GameObject item = currentLevelChestItems[randomIndex];
+        currentLevelChestItems.Remove(item);
+        return item;
+    }
 
     /* 
 

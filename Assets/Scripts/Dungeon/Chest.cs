@@ -23,9 +23,10 @@ public class Chest : MonoBehaviour
         {
             Instantiate(predefinedItem, transform.position, Quaternion.identity, itemPos);
         }
-        else
+        else// Random item
         {
-            // Random item
+            GameObject randomItem = LevelManager.Instance.GetRandomItemForChest();
+            Instantiate(randomItem, transform.position, Quaternion.identity, itemPos);
         }
     }
     private void OnTriggerEnter2D(Collider2D other) 
