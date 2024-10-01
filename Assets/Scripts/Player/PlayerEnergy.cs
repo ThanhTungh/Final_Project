@@ -21,7 +21,7 @@ public class PlayerEnergy : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.J))
         {
-            RecoverEnergy(1f);
+            RecoverEnergy(50f);
         }
     }
     public void UseEnergy(float amount)
