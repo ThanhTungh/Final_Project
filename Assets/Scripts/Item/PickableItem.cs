@@ -4,10 +4,11 @@ using UnityEngine;
 public class PickableItem : MonoBehaviour
 {
     [Header("Config")]
-    [SerializeField] private ItemData itemData;
-    
+    [SerializeField] private ItemData item;
+
     private PlayerActions actions;
     private bool canInteract;
+    private ItemText nameText;
 
     private void Awake() 
     {
@@ -22,8 +23,20 @@ public class PickableItem : MonoBehaviour
     {
         if (canInteract)
         {
-            itemData.Pickup();
+            item.Pickup();
             Destroy(gameObject);
+        }
+    }
+    private void ShowItemName()
+    {
+        Vector3 textPos = new Vector3(0f, 1f, 0f);
+        if (item is ItemWeapon weapon)
+        {
+            nameText = ItemTextManager.Instance.ShowMessage(weapon.ID, Color.white, textPos + transform.position);
+        }
+        else
+        {
+            nameText = ItemTextManager.Instance.ShowMessage(item.ID, Color.white, textPos + transform.position);
         }
     }
     
@@ -31,6 +44,7 @@ public class PickableItem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             canInteract = true;
+            ShowItemName();
         }
     }
 
@@ -38,6 +52,7 @@ public class PickableItem : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             canInteract = false;
+            Destroy(nameText.gameObject);
         }
     }
 
