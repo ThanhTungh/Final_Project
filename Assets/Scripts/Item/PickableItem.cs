@@ -32,7 +32,8 @@ public class PickableItem : MonoBehaviour
         Vector3 textPos = new Vector3(0f, 1f, 0f);
         if (item is ItemWeapon weapon)
         {
-            nameText = ItemTextManager.Instance.ShowMessage(weapon.ID, Color.white, textPos + transform.position);
+            Color itemColor = GameManager.Instance.GetWeaponNameColor(weapon.Rarity);
+            nameText = ItemTextManager.Instance.ShowMessage(weapon.ID, itemColor, textPos + transform.position);
         }
         else
         {
