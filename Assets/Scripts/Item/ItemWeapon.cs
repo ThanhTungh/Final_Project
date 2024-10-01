@@ -24,4 +24,10 @@ public class ItemWeapon : ItemData
     public float TimeBetweenShots;
     public float MinSpread;
     public float MaxSpread;
+
+    public override void Pickup()
+    {
+        base.Pickup();
+        Debug.Log("Picked up weapon: " + name);
+    }
 }

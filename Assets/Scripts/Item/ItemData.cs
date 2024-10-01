@@ -8,5 +8,9 @@ public class ItemData : ScriptableObject
     [Header("Config")]
     public string ID;
     public Sprite Icon;
+    public virtual void Pickup()
+    {
+
+    }
 
 }
