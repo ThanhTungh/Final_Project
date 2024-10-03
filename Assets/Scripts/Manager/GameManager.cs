@@ -1,20 +1,20 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
+public class GameManager : PersistentSingleton<GameManager>
 {
-    public static GameManager Instance;
+    // public static GameManager Instance;
 
     [Header("Weapon Name Color")]
     [SerializeField] private Color weaponCommonColor;
     [SerializeField] private Color weaponRareColor;
     [SerializeField] private Color weaponEpicColor;
     [SerializeField] private Color weaponLegendaryColor;
-    private void Awake()
-    {
-        Instance = this;
-    }
+
+    // private void Awake()
+    // {
+    //     Instance = this;
+    // }
+
     public Color GetWeaponNameColor(WeaponRarity rarity)
     {
         switch (rarity)

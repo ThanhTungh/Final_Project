@@ -5,10 +5,10 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UIManager : MonoBehaviour
+public class UIManager : Singleton<UIManager>
 {
 
-    public static UIManager Instance;
+    // public static UIManager Instance;
 
 
     [Header("References")]
@@ -28,10 +28,10 @@ public class UIManager : MonoBehaviour
     [SerializeField] private CanvasGroup fadePanel;
 
 
-    private void Awake()
-    {
-        Instance = this;
-    }
+    // private void Awake()
+    // {
+    //     Instance = this;
+    // }
 
     void Update()
     {

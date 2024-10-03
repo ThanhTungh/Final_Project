@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 // Using Singleton Pattern 
-public class LevelManager : MonoBehaviour
+public class LevelManager : Singleton<LevelManager>
 {
-    public static LevelManager Instance; 
+    // public static LevelManager Instance; 
 
     [Header("Temp")]
     [SerializeField] private GameObject player;
@@ -24,10 +24,11 @@ public class LevelManager : MonoBehaviour
     private GameObject currentDungeonGO;
 
     private List<GameObject> currentLevelChestItems = new List<GameObject>();
-    private void Awake() // Awake(): https://docs.unity3d.com/ScriptReference/MonoBehaviour.Awake.html
-    { 
-        Instance = this;
-    }
+
+    // private void Awake() // Awake(): https://docs.unity3d.com/ScriptReference/MonoBehaviour.Awake.html
+    // { 
+    //     Instance = this;
+    // }
 
     private void Start()
     {
