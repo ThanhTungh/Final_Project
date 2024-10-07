@@ -9,7 +9,7 @@ public class PlayerEnergy : MonoBehaviour
 
     public bool CanUseEnergy
     {
-        get {return playerConfig.CurrentEnergy > 0f;}
+        get {return playerConfig.Energy > 0f;}
     }
 
     
@@ -26,18 +26,18 @@ public class PlayerEnergy : MonoBehaviour
     }
     public void UseEnergy(float amount)
     {
-        playerConfig.CurrentEnergy -= amount;
-        if (playerConfig.CurrentEnergy < 0)
+        playerConfig.Energy -= amount;
+        if (playerConfig.Energy < 0)
         {
-            playerConfig.CurrentEnergy = 0;
+            playerConfig.Energy = 0;
         }
     }
     public void RecoverEnergy(float amount)
     {
-        playerConfig.CurrentEnergy += amount;
-        if (playerConfig.CurrentEnergy > playerConfig.MaxEnergy)
+        playerConfig.Energy += amount;
+        if (playerConfig.Energy > playerConfig.MaxEnergy)
         {
-            playerConfig.CurrentEnergy = playerConfig.MaxEnergy;
+            playerConfig.Energy = playerConfig.MaxEnergy;
         }
     }
 }

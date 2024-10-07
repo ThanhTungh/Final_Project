@@ -17,9 +17,13 @@ MonoBehaviour:
   Icon: {fileID: -674562923, guid: 81183d4d90d9b1947bc32467ceade557, type: 3}
   CurrentHealth: 8
   MaxHealth: 8
-  CurrentArmor: 6
+  Armor: 0
   MaxArmor: 6
-  CurrentEnergy: 168
+  Energy: 0
   MaxEnergy: 180
   CriticalChance: 50
   CriticalDamage: 50
+  Unlocked: 0
+  UnlockCost: 500
+  UpgradeCost: 500
+  UpgradeMultiplier: 50

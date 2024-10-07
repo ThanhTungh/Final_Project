@@ -46,11 +46,11 @@ public class UIManager : Singleton<UIManager>
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, playerConfig.CurrentHealth / playerConfig.MaxHealth, 10f * Time.deltaTime);
         healthText.text = playerConfig.CurrentHealth + " / " + playerConfig.MaxHealth;
 
-        energyBar.fillAmount = Mathf.Lerp(energyBar.fillAmount, playerConfig.CurrentEnergy / playerConfig.MaxEnergy, 10f * Time.deltaTime);
-        energyText.text = playerConfig.CurrentEnergy + " / " + playerConfig.MaxEnergy;
+        energyBar.fillAmount = Mathf.Lerp(energyBar.fillAmount, playerConfig.Energy / playerConfig.MaxEnergy, 10f * Time.deltaTime);
+        energyText.text = playerConfig.Energy + " / " + playerConfig.MaxEnergy;
 
-        armorBar.fillAmount = Mathf.Lerp(armorBar.fillAmount, playerConfig.CurrentArmor / playerConfig.MaxArmor, 10f * Time.deltaTime);
-        armorText.text = playerConfig.CurrentArmor + " / " + playerConfig.MaxArmor;
+        armorBar.fillAmount = Mathf.Lerp(armorBar.fillAmount, playerConfig.Armor / playerConfig.MaxArmor, 10f * Time.deltaTime);
+        armorText.text = playerConfig.Armor + " / " + playerConfig.MaxArmor;
     }
 
 
