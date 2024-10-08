@@ -15,14 +15,18 @@ MonoBehaviour:
   Level: 1
   Name: Ember
   Icon: {fileID: 800272238, guid: 81183d4d90d9b1947bc32467ceade557, type: 3}
-  CurrentHealth: 7
-  MaxHealth: 7
-  Armor: 0
+  CurrentHealth: 8
+  MaxHealth: 8
+  Armor: 7
   MaxArmor: 7
-  Energy: 0
+  Energy: 200
   MaxEnergy: 200
-  CriticalChance: 30
-  CriticalDamage: 100
+  CriticalChance: 15
+  CriticalDamage: 50
+  HealthMaxUpgrade: 16
+  ArmorhMaxUpgrade: 14
+  EnergyMaxUpgrade: 280
+  CriticalMaxUpgrade: 25
   Unlocked: 0
   UnlockCost: 1000
   UpgradeCost: 800

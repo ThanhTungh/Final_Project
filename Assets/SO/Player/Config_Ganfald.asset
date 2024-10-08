@@ -15,14 +15,18 @@ MonoBehaviour:
   Level: 0
   Name: Ganfald
   Icon: {fileID: 986637157, guid: 81183d4d90d9b1947bc32467ceade557, type: 3}
-  CurrentHealth: 7
-  MaxHealth: 7
-  Armor: 0
-  MaxArmor: 5
-  Energy: 0
-  MaxEnergy: 180
-  CriticalChance: 20
-  CriticalDamage: 70
+  CurrentHealth: 10
+  MaxHealth: 10
+  Armor: 9
+  MaxArmor: 9
+  Energy: 250
+  MaxEnergy: 250
+  CriticalChance: 30
+  CriticalDamage: 100
+  HealthMaxUpgrade: 20
+  ArmorhMaxUpgrade: 16
+  EnergyMaxUpgrade: 350
+  CriticalMaxUpgrade: 40
   Unlocked: 0
   UnlockCost: 2000
   UpgradeCost: 1000

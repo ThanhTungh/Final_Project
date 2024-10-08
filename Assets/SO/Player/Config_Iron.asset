@@ -12,17 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec60e77010edaa4e853c67128e28b57, type: 3}
   m_Name: Config_Iron
   m_EditorClassIdentifier: 
-  Level: 0
+  Level: 1
   Name: Iron
   Icon: {fileID: -674562923, guid: 81183d4d90d9b1947bc32467ceade557, type: 3}
   CurrentHealth: 8
-  MaxHealth: 8
-  Armor: 0
+  MaxHealth: 9
+  Armor: 6
   MaxArmor: 6
-  Energy: 0
+  Energy: 180
   MaxEnergy: 180
-  CriticalChance: 50
-  CriticalDamage: 50
+  CriticalChance: 20
+  CriticalDamage: 80
+  HealthMaxUpgrade: 14
+  ArmorhMaxUpgrade: 12
+  EnergyMaxUpgrade: 260
+  CriticalMaxUpgrade: 30
   Unlocked: 0
   UnlockCost: 500
   UpgradeCost: 500

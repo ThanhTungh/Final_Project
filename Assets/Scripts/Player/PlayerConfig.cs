@@ -20,6 +20,11 @@ public class PlayerConfig : ScriptableObject //ScriptableObject la 1 data contai
     public float CriticalChance;
     public float CriticalDamage;
 
+    [Header("Upgrade Values")]
+    public float HealthMaxUpgrade;
+    public float ArmorhMaxUpgrade;
+    public float EnergyMaxUpgrade;
+    public float CriticalMaxUpgrade;
 
     [Header("Extra")]
     public bool Unlocked;
@@ -28,7 +33,7 @@ public class PlayerConfig : ScriptableObject //ScriptableObject la 1 data contai
     [Range(0, 100f)]
     public int UpgradeMultiplier;
 
-
+    
     public void ResetPlayerStats()
     {
         CurrentHealth = MaxHealth;
