@@ -31,3 +31,4 @@ MonoBehaviour:
   UnlockCost: 500
   UpgradeCost: 500
   UpgradeMultiplier: 50
+  PlayerPrefab: {fileID: 7834658779728981838, guid: 119ecef8f345bda41b11ef1308d49d52, type: 3}

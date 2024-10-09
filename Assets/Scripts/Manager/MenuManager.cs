@@ -74,6 +74,7 @@ public class MenuManager : Singleton<MenuManager>
         {
             currentPlayer.GetComponent<PlayerMovement>().enabled = true; // currentPlayer => player in CreationPlayer() found
             currentPlayer.Config.ResetPlayerStats();
+            GameManager.Instance.Player = currentPlayer.Config;
             ClosePlayerPanel();
         }
     }

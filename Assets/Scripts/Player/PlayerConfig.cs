@@ -33,12 +33,14 @@ public class PlayerConfig : ScriptableObject //ScriptableObject la 1 data contai
     [Range(0, 100f)]
     public int UpgradeMultiplier;
 
-    
+    [Header("Prefab")]
+    public GameObject PlayerPrefab;
+
+
     public void ResetPlayerStats()
     {
         CurrentHealth = MaxHealth;
         Armor = MaxArmor;
         Energy = MaxEnergy;
-
     }
 }

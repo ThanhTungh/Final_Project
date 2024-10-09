@@ -10,11 +10,6 @@ public class UIManager : Singleton<UIManager>
 
     // public static UIManager Instance;
 
-
-    [Header("References")]
-    [SerializeField] private PlayerConfig playerConfig;
-
-
     [Header("Player UI")]
     [SerializeField] private Image healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
@@ -40,6 +35,7 @@ public class UIManager : Singleton<UIManager>
 
     private void UpdatePlayerUI()
     {
+        PlayerConfig playerConfig = GameManager.Instance.Player;
         //Hiệu ứng mượt mà: Mathf.Lerp (Linear Interpolation) giúp giá trị healthBar.fillAmount thay đổi một cách mượt mà từ giá trị hiện tại đến giá trị mong muốn (playerConfig.CurrentHealth / playerConfig.MaxHealth). Điều này tạo ra một hiệu ứng "trượt" khi thanh máu giảm hoặc tăng, thay vì thay đổi đột ngột.
         //Trải nghiệm người dùng tốt hơn: Hiệu ứng mượt mà này thường mang lại trải nghiệm người dùng tốt hơn, đặc biệt khi giá trị máu thay đổi từ từ, người chơi sẽ cảm thấy thanh máu phản hồi một cách tự nhiên hơn.
         //healthBar.fillAmount = playerConfig.CurrentHealth / playerConfig.MaxHealth;

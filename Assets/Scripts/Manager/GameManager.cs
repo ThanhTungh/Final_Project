@@ -9,6 +9,8 @@ public class GameManager : PersistentSingleton<GameManager>
     [SerializeField] private Color weaponRareColor;
     [SerializeField] private Color weaponEpicColor;
     [SerializeField] private Color weaponLegendaryColor;
+    
+    public PlayerConfig Player { get; set; }
 
     // private void Awake()
     // {
