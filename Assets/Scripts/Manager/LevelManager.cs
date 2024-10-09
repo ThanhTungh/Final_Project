@@ -3,20 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 // Using Singleton Pattern 
-public class LevelManager : MonoBehaviour
+public class LevelManager : Singleton<LevelManager>
 {
-    public static LevelManager Instance; 
-
-    [Header("Temp")]
-    [SerializeField] private GameObject player;
+    // public static LevelManager Instance; 
 
     [Header("Config")]
     [SerializeField] private RoomTemplate roomTemplates;
     [SerializeField] private DungeonLibrary dungeonLibrary;
 
-    public GameObject Player => player;
     public RoomTemplate RoomTemplates => roomTemplates;
     public DungeonLibrary DungeonLibrary => dungeonLibrary;
+    public GameObject SelectedPlayer { get; set; }
 
     private Room currentRoom;
     private int currentLevelIndex;
@@ -24,14 +21,29 @@ public class LevelManager : MonoBehaviour
     private GameObject currentDungeonGO;
 
     private List<GameObject> currentLevelChestItems = new List<GameObject>();
-    private void Awake() // Awake(): https://docs.unity3d.com/ScriptReference/MonoBehaviour.Awake.html
-    { 
-        Instance = this;
+
+    // private void Awake() // Awake(): https://docs.unity3d.com/ScriptReference/MonoBehaviour.Awake.html
+    // { 
+    //     Instance = this;
+    // }
+
+    protected override void Awake()
+    {
+        base.Awake();
+        CreatePlayer();
     }
 
     private void Start()
     {
         CreateDungeon();
+    }
+
+    private void CreatePlayer()
+    {
+        if (GameManager.Instance.Player != null)
+        {
+            SelectedPlayer = Instantiate(GameManager.Instance.Player.PlayerPrefab);
+        }
     }
 
     /* 
@@ -78,9 +90,9 @@ public class LevelManager : MonoBehaviour
 
         if (entranceRoom != null)
         {
-            if (player != null)
+            if (SelectedPlayer != null)
             {
-                player.transform.position = entranceRoom.transform.position;
+                SelectedPlayer.transform.position = entranceRoom.transform.position;
             }
         }
     }

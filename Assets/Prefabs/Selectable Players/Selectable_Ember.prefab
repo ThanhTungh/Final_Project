@@ -248,11 +248,9 @@ GameObject:
   - component: {fileID: 444299105139180384}
   - component: {fileID: 8950168192621173108}
   - component: {fileID: 5763951526564460342}
-  - component: {fileID: 925342868035123038}
-  - component: {fileID: 6227121586442679338}
-  - component: {fileID: 1837053036010317511}
+  - component: {fileID: -7450936671720022004}
   m_Layer: 0
-  m_Name: Player_Ember
+  m_Name: Selectable_Ember
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -385,7 +383,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &925342868035123038
+--- !u!114 &-7450936671720022004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -394,33 +392,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7834658779728981838}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 368861d18d708174f8d84ad0a5ba5121, type: 3}
+  m_Script: {fileID: 11500000, guid: f1563cef78752184da866e48aee66e43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerConfig: {fileID: 11400000, guid: 636b1e25330db5f40ae3689b9cc685f4, type: 2}
---- !u!114 &6227121586442679338
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7834658779728981838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33797804a75f68741b29d2f894ec1445, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerConfig: {fileID: 11400000, guid: 636b1e25330db5f40ae3689b9cc685f4, type: 2}
---- !u!114 &1837053036010317511
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7834658779728981838}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed9108d0d84acc64bba9a3e86aa5b8a4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  weaponPos: {fileID: 3957562209058507096}
+  config: {fileID: 11400000, guid: 636b1e25330db5f40ae3689b9cc685f4, type: 2}
