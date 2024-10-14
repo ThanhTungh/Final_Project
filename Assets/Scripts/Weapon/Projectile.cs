@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Projectile : MonoBehaviour
 {
+    // Configure bullet parameters for each different gun
+
     [Header("Config")]
     [SerializeField] private float speed;
     public Vector3 Direction{get; set;}
