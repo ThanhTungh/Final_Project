@@ -13,9 +13,11 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float dashTime = 0.3f;
     [SerializeField] private float transperency = 0.3f;
 
+    private Joystick joystick;
+
     public Vector2 MoveDirection => moveDirection;
 
-    private SpriteRenderer spriteRenderer; 
+    private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2D;
     private PlayerActions actions;
 
@@ -25,6 +27,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        joystick = FindObjectOfType<Joystick>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb2D = GetComponent<Rigidbody2D>();
         actions = new PlayerActions();
@@ -37,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         CaptureInput();
-        RotatePlayer();      
+        RotatePlayer();
     }
     private void FixedUpdate()
     {
@@ -50,8 +53,21 @@ public class PlayerMovement : MonoBehaviour
     }
     private void CaptureInput()
     {
-        moveDirection = actions.Movement.Move.ReadValue<Vector2>().normalized;
+        // Lấy giá trị từ Input System
+        Vector2 inputSystemMovement = actions.Movement.Move.ReadValue<Vector2>().normalized;
+
+        // Lấy giá trị từ Joystick
+        Vector2 joystickMovement = Vector2.zero;
+        if (joystick != null)
+        {
+            joystickMovement = new Vector2(joystick.Horizontal, joystick.Vertical).normalized;
+        }
+
+        // Kết hợp cả hai giá trị lại
+        moveDirection = (inputSystemMovement + joystickMovement).normalized;
     }
+
+
     private void Dash()
     {
         if (usingDash)
@@ -74,11 +90,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void RotatePlayer()//rotation player 
     {
-        if(moveDirection.x >= 0.1f)
+        if (moveDirection.x >= 0.1f)
         {
             spriteRenderer.flipX = false;
         }
-        else if(moveDirection.x < 0f)
+        else if (moveDirection.x < 0f)
         {
             spriteRenderer.flipX = true;
         }
