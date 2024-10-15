@@ -44,6 +44,15 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveA"",
+                    ""type"": ""Value"",
+                    ""id"": ""d7b5728c-2a68-41d7-b1ea-1ee3c2885e47"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -110,6 +119,17 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bc530151-2cdd-4835-9be8-e8eeaf60e982"",
+                    ""path"": ""<Joystick>/stick"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveA"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -198,6 +218,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
         m_Movement = asset.FindActionMap("Movement", throwIfNotFound: true);
         m_Movement_Move = m_Movement.FindAction("Move", throwIfNotFound: true);
         m_Movement_Dash = m_Movement.FindAction("Dash", throwIfNotFound: true);
+        m_Movement_MoveA = m_Movement.FindAction("MoveA", throwIfNotFound: true);
         // Weapon
         m_Weapon = asset.FindActionMap("Weapon", throwIfNotFound: true);
         m_Weapon_Shoot = m_Weapon.FindAction("Shoot", throwIfNotFound: true);
@@ -268,12 +289,14 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     private List<IMovementActions> m_MovementActionsCallbackInterfaces = new List<IMovementActions>();
     private readonly InputAction m_Movement_Move;
     private readonly InputAction m_Movement_Dash;
+    private readonly InputAction m_Movement_MoveA;
     public struct MovementActions
     {
         private @PlayerActions m_Wrapper;
         public MovementActions(@PlayerActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Movement_Move;
         public InputAction @Dash => m_Wrapper.m_Movement_Dash;
+        public InputAction @MoveA => m_Wrapper.m_Movement_MoveA;
         public InputActionMap Get() { return m_Wrapper.m_Movement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -289,6 +312,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Dash.started += instance.OnDash;
             @Dash.performed += instance.OnDash;
             @Dash.canceled += instance.OnDash;
+            @MoveA.started += instance.OnMoveA;
+            @MoveA.performed += instance.OnMoveA;
+            @MoveA.canceled += instance.OnMoveA;
         }
 
         private void UnregisterCallbacks(IMovementActions instance)
@@ -299,6 +325,9 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
             @Dash.started -= instance.OnDash;
             @Dash.performed -= instance.OnDash;
             @Dash.canceled -= instance.OnDash;
+            @MoveA.started -= instance.OnMoveA;
+            @MoveA.performed -= instance.OnMoveA;
+            @MoveA.canceled -= instance.OnMoveA;
         }
 
         public void RemoveCallbacks(IMovementActions instance)
@@ -420,6 +449,7 @@ public partial class @PlayerActions: IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnDash(InputAction.CallbackContext context);
+        void OnMoveA(InputAction.CallbackContext context);
     }
     public interface IWeaponActions
     {
