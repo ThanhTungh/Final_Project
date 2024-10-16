@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7567155592786626200}
   - component: {fileID: 1117206103155876563}
   - component: {fileID: 6992941781127621952}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1557066961
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 10
   m_Sprite: {fileID: 986637157, guid: 81183d4d90d9b1947bc32467ceade557, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -130,7 +130,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5228724397355249181}
   - component: {fileID: 4523047272490608306}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Floor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1557066961
-  m_SortingLayer: 5
+  m_SortingLayer: 6
   m_SortingOrder: 2
   m_Sprite: {fileID: 1191969320, guid: d112e82efa2d99440af69a7e6332d68e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -218,7 +218,7 @@ GameObject:
   - component: {fileID: 8950168192621173108}
   - component: {fileID: 7204676912683593338}
   - component: {fileID: -4487434368409894532}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Selectable_Ganfald
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -374,7 +374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8564296695910607418}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: WeaponPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
