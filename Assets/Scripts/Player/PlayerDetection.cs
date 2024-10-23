@@ -6,11 +6,14 @@ public class PlayerDetection : MonoBehaviour
 {
     [Header("Config")]
     [SerializeField] private float rangeDetection;
+    [SerializeField] private LayerMask obstacleMask; // LayerMask: https://docs.unity3d.com/ScriptReference/LayerMask.html
+
 
     public EnemyHealth EnemyTarget { get; set; }
 
     private CircleCollider2D myCollider2D;
     private List<EnemyHealth> enemyList = new List<EnemyHealth>();
+    private List<EnemyHealth> enemiesLineOfSight = new List<EnemyHealth>();
 
     private void Awake()
     {
@@ -21,6 +24,66 @@ public class PlayerDetection : MonoBehaviour
     void Start()
     {
         myCollider2D.radius = rangeDetection;
+    }
+
+    private void Update() 
+    {
+        CheckEnemiesInSight();
+        GetClosestEnemy();
+    }
+
+    private void CheckEnemiesInSight()
+    {
+        for (int i = 0; i < enemyList.Count; i++)
+        {
+            if (enemyList.Count == 0 || enemyList == null) return;
+
+            Vector3 playerPos = transform.position;
+            Vector3 dirEnemy = enemyList[i].transform.position - playerPos;
+            RaycastHit2D hit = Physics2D.Raycast(playerPos, dirEnemy, dirEnemy.magnitude, obstacleMask);
+            if (hit.collider == null) 
+            {
+                if (enemiesLineOfSight.Contains(enemyList[i]) == false)
+                {
+                    enemiesLineOfSight.Add(enemyList[i]);
+                }
+            }
+            else
+            {
+                if (enemiesLineOfSight.Contains(enemyList[i]))
+                {
+                    enemiesLineOfSight.Remove(enemyList[i]);
+                }
+
+                if (EnemyTarget == enemyList[i])
+                {
+                    EnemyTarget = null;
+                }
+            }
+        }
+    }
+
+    private void GetClosestEnemy()
+    {
+        float minDistance = Mathf.Infinity;
+        EnemyHealth enemyTarget = null;
+        for (int i = 0; i < enemiesLineOfSight.Count; i++)
+        {
+            Vector3 enemyPos = enemiesLineOfSight[i].transform.position;
+            float enemyDistance = Vector3.Distance(transform.position, enemyPos);
+            if (enemyDistance < minDistance)
+            {
+                enemyTarget = enemiesLineOfSight[i];
+                minDistance = enemyDistance;
+            }
+        }
+
+        if (enemyTarget != null)
+        {
+            EnemyTarget = enemyTarget;
+            enemiesLineOfSight.Clear();
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other) 
@@ -54,5 +117,9 @@ public class PlayerDetection : MonoBehaviour
             Gizmos.color = Color.red;
             Gizmos.DrawLine(transform.position, enemyList[i].transform.position);
         }
+
+        if (EnemyTarget == null) return;
+        Gizmos.color = Color.green;
+        Gizmos.DrawLine(transform.position, EnemyTarget.transform.position);
     }
 }

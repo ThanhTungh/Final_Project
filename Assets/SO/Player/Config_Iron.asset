@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec60e77010edaa4e853c67128e28b57, type: 3}
   m_Name: Config_Iron
   m_EditorClassIdentifier: 
-  Level: 1
+  Level: 0
   Name: Iron
   Icon: {fileID: -674562923, guid: 81183d4d90d9b1947bc32467ceade557, type: 3}
-  CurrentHealth: 8
+  CurrentHealth: 9
   MaxHealth: 9
   Armor: 6
   MaxArmor: 6

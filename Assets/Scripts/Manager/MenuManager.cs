@@ -58,6 +58,8 @@ public class MenuManager : Singleton<MenuManager>
 
                                             // Create a clone of an object in prefab,... (https://docs.unity3d.com/ScriptReference/Object.Instantiate.html)
             player.enabled = false;
+            var playerRb = player.GetComponent<Rigidbody2D>();
+            playerRb.constraints = RigidbodyConstraints2D.FreezeAll;
         }
     }
 
@@ -155,6 +157,9 @@ public class MenuManager : Singleton<MenuManager>
             upgradeButton.SetActive(true);
             selectButton.SetActive(true);
             unlockButton.SetActive(false);
+            var playerRb = currentPlayer.GetComponent<Rigidbody2D>();
+            playerRb.constraints = RigidbodyConstraints2D.None;
+            playerRb.constraints = RigidbodyConstraints2D.FreezeRotation;
         }
     }
 

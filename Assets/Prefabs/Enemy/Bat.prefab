@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 3877316000959044037}
   - component: {fileID: 7753170356048457566}
   - component: {fileID: 4670323313497410269}
+  - component: {fileID: 2193428772342546359}
+  - component: {fileID: 2789447522318452882}
   m_Layer: 9
   m_Name: Bat
   m_TagString: Enemy
@@ -184,3 +186,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!114 &2193428772342546359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6339618289804087770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4963509fcfeed4e979ab53583dcffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialStateID: Wander
+  states:
+  - StateID: Wander
+    Actions:
+    - {fileID: 2789447522318452882}
+    Transitions: []
+--- !u!114 &2789447522318452882
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6339618289804087770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee7366f3c48dfe5489cff97876f16825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useDebug: 1
+  useRandomMovement: 1
+  wanderSpeed: 1.5
+  moveRange: {x: 2, y: 2}
+  minDistanceCheck: 0.5
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  rangeDetection: 0.6

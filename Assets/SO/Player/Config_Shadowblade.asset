@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec60e77010edaa4e853c67128e28b57, type: 3}
   m_Name: Config_Shadowblade
   m_EditorClassIdentifier: 
-  Level: 8
+  Level: 0
   Name: Shadow Blade
   Icon: {fileID: 1858702564, guid: 81183d4d90d9b1947bc32467ceade557, type: 3}
   CurrentHealth: 4
@@ -29,6 +29,6 @@ MonoBehaviour:
   CriticalMaxUpgrade: 25
   Unlocked: 1
   UnlockCost: 0
-  UpgradeCost: 1281.4453
+  UpgradeCost: 100
   UpgradeMultiplier: 50
   PlayerPrefab: {fileID: 7834658779728981838, guid: e98b5ff801b94f04599adf1fa63404e4, type: 3}

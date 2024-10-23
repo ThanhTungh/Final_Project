@@ -46,6 +46,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rangeDetection: 4
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 1024
 --- !u!58 &4214407341623568139
 CircleCollider2D:
   m_ObjectHideFlags: 0

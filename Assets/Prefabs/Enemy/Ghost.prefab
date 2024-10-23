@@ -14,6 +14,8 @@ GameObject:
   - component: {fileID: 8093304655297719018}
   - component: {fileID: 9076648146754036042}
   - component: {fileID: 1561327767034914488}
+  - component: {fileID: 1412060895114776153}
+  - component: {fileID: 5069291684147302752}
   m_Layer: 9
   m_Name: Ghost
   m_TagString: Enemy
@@ -184,3 +186,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!114 &1412060895114776153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6150930206628366070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8d4963509fcfeed4e979ab53583dcffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialStateID: Wander
+  states:
+  - StateID: Wander
+    Actions:
+    - {fileID: 5069291684147302752}
+    Transitions: []
+--- !u!114 &5069291684147302752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6150930206628366070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee7366f3c48dfe5489cff97876f16825, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useDebug: 1
+  useRandomMovement: 1
+  wanderSpeed: 1.5
+  moveRange: {x: 2, y: 2}
+  minDistanceCheck: 0.5
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 1024
+  rangeDetection: 0.6
