@@ -27,6 +27,10 @@ public class ActionWander : FSMAction
     {
         moveDirection = (movePosition - transform.position).normalized;
         transform.Translate(moveDirection * (wanderSpeed * Time.deltaTime));
+        if (CanGetNewPosition()) // Action always
+        {
+            GetNewMovePosition();
+        }
     }
 
     private void GetNewMovePosition()
@@ -35,6 +39,24 @@ public class ActionWander : FSMAction
         {
             movePosition = transform.position + GetRandomDirection();
         }
+    }
+
+    private bool CanGetNewPosition()
+    {
+        if (Vector3.Distance(transform.position, movePosition) < minDistanceCheck)
+        {
+            return true;
+        }
+
+        Collider2D collider = Physics2D.OverlapCircle(transform.position, rangeDetection, obstacleMask);
+        if (collider != null)
+        {
+            Vector3 oppositeDirection = -moveDirection;
+            transform.position += oppositeDirection * 0.1f;
+            return true;
+        }
+
+        return false;
     }
 
     private Vector3 GetRandomDirection()

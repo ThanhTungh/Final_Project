@@ -4485,6 +4485,8 @@ MonoBehaviour:
   useDebug: 0
   roomType: 0
   extraTilemap: {fileID: 8997458828293040322}
+  posDoorNS: []
+  posDoorWE: []
 --- !u!1 &7898755550869870051
 GameObject:
   m_ObjectHideFlags: 0
@@ -4499,7 +4501,7 @@ GameObject:
   - component: {fileID: 1360365839984452640}
   - component: {fileID: 2899945172042263202}
   - component: {fileID: 7109483000437044494}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
