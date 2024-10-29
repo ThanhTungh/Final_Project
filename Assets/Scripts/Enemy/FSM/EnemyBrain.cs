@@ -12,6 +12,7 @@ public class EnemyBrain : MonoBehaviour
 
     public FSMState CurrentState { get; set; }
     public Room RoomParent { get; set; }
+    public Transform Player { get; set; }   
 
 
     // Start is called before the first frame update
