@@ -5,6 +5,7 @@ public class ActionWander : FSMAction
     [Header("Config")]
     [SerializeField] private bool useDebug;
     [SerializeField] private bool useRandomMovement;
+    [SerializeField] private bool useTileMovement;
 
     [Header("Values")]
     [SerializeField] private float wanderSpeed;
@@ -15,8 +16,15 @@ public class ActionWander : FSMAction
     [SerializeField] private LayerMask obstacleMask;
     [SerializeField] private float rangeDetection;
     
+    private EnemyBrain enemy;
     private Vector3 movePosition;
     private Vector3 moveDirection;
+
+
+    private void Awake() 
+    {
+        enemy = GetComponent<EnemyBrain>();
+    }
 
     private void Start() 
     {
@@ -35,9 +43,15 @@ public class ActionWander : FSMAction
 
     private void GetNewMovePosition()
     {
+        // Use 1 of 2. Do no use both
         if (useRandomMovement)
         {
             movePosition = transform.position + GetRandomDirection();
+        }
+
+        if (useTileMovement)
+        {
+            movePosition = GetTilePos();
         }
     }
 
@@ -57,6 +71,11 @@ public class ActionWander : FSMAction
         }
 
         return false;
+    }
+
+    private Vector3 GetTilePos() // get available position for "enemy" to movement and avoid "obstacles" exist
+    {
+        return enemy.RoomParent.GetAvailableTilePos();
     }
 
     private Vector3 GetRandomDirection()

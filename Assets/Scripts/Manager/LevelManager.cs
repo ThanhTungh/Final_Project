@@ -55,8 +55,9 @@ public class LevelManager : Singleton<LevelManager>
         for (int i = 0; i < enemyAmount; i++)
         {
             Vector3 tilePos = currentRoom.GetAvailableTilePos();
-            Instantiate(GetEnemy(), tilePos, 
+            EnemyBrain enemy = Instantiate(GetEnemy(), tilePos, 
                         Quaternion.identity, currentRoom.transform);
+            enemy.RoomParent = currentRoom;
         }
     }
 

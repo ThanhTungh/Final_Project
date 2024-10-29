@@ -217,11 +217,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   useDebug: 1
-  useRandomMovement: 1
+  useRandomMovement: 0
+  useTileMovement: 1
   wanderSpeed: 1.5
   moveRange: {x: 2, y: 2}
   minDistanceCheck: 0.5
   obstacleMask:
     serializedVersion: 2
     m_Bits: 1024
-  rangeDetection: 0.6
+  rangeDetection: 0.4

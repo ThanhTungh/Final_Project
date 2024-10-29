@@ -11,6 +11,7 @@ public class EnemyBrain : MonoBehaviour
     [SerializeField] private FSMState[] states;
 
     public FSMState CurrentState { get; set; }
+    public Room RoomParent { get; set; }
 
 
     // Start is called before the first frame update
