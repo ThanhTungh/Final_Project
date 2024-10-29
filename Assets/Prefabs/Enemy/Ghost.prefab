@@ -17,6 +17,8 @@ GameObject:
   - component: {fileID: 1412060895114776153}
   - component: {fileID: 5069291684147302752}
   - component: {fileID: 1048392090741481627}
+  - component: {fileID: -521773689846097530}
+  - component: {fileID: -840184601137968705}
   m_Layer: 9
   m_Name: Ghost
   m_TagString: Enemy
@@ -205,7 +207,17 @@ MonoBehaviour:
     Actions:
     - {fileID: 5069291684147302752}
     - {fileID: 1048392090741481627}
-    Transitions: []
+    Transitions:
+    - Decision: {fileID: -521773689846097530}
+      TrueState: Attack
+      FalseState: 
+  - StateID: Attack
+    Actions:
+    - {fileID: 1048392090741481627}
+    Transitions:
+    - Decision: {fileID: -521773689846097530}
+      TrueState: 
+      FalseState: Wander
 --- !u!114 &5069291684147302752
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,3 +256,30 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &-521773689846097530
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6150930206628366070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8243c1e8881b1b1469999e4320fac0e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 1024
+--- !u!114 &-840184601137968705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6150930206628366070}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4162a429d88fc48819f4e745bf1501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
