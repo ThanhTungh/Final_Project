@@ -204,7 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponPos: {fileID: 2553443371566911888}
-  initialWeapon: {fileID: 1238309236893726733, guid: a0a541904266be242acc3a14833954f2, type: 3}
+  initialWeapon: {fileID: -562808719781379171, guid: a0a541904266be242acc3a14833954f2, type: 3}
 --- !u!114 &1412060895114776153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -230,6 +230,7 @@ MonoBehaviour:
   - StateID: Attack
     Actions:
     - {fileID: 1048392090741481627}
+    - {fileID: -840184601137968705}
     Transitions:
     - Decision: {fileID: -521773689846097530}
       TrueState: 
@@ -299,6 +300,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da4162a429d88fc48819f4e745bf1501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  timeBtwAttacks: 0.5
 --- !u!1 &8679566429665124584
 GameObject:
   m_ObjectHideFlags: 0

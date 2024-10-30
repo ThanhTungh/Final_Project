@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &2404525681703073093
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 524562373153464817}
+  m_Layer: 9
+  m_Name: WeaponPos
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &524562373153464817
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2404525681703073093}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 8137180220080101230}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4857506104076722876
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,9 +45,12 @@ GameObject:
   - component: {fileID: 3983240961744334716}
   - component: {fileID: 1715627088334649050}
   - component: {fileID: 3902953097141779998}
+  - component: {fileID: 7948634552121853821}
   - component: {fileID: 349836839898876482}
   - component: {fileID: 6476658088435252451}
   - component: {fileID: 2779776837311988317}
+  - component: {fileID: -4194740697754729546}
+  - component: {fileID: 7885681435954494260}
   m_Layer: 9
   m_Name: Cactus
   m_TagString: Enemy
@@ -36,7 +70,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 524562373153464817}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2519077675716072492
@@ -187,6 +222,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 10
+--- !u!114 &7948634552121853821
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4857506104076722876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e262bec9b23c4e8468d0d3c28c0256da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weaponPos: {fileID: 524562373153464817}
+  initialWeapon: {fileID: -562808719781379171, guid: a0a541904266be242acc3a14833954f2, type: 3}
 --- !u!114 &349836839898876482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,7 +254,18 @@ MonoBehaviour:
     Actions:
     - {fileID: 6476658088435252451}
     - {fileID: 2779776837311988317}
-    Transitions: []
+    Transitions:
+    - Decision: {fileID: -4194740697754729546}
+      TrueState: Attack
+      FalseState: 
+  - StateID: Attack
+    Actions:
+    - {fileID: 2779776837311988317}
+    - {fileID: 7885681435954494260}
+    Transitions:
+    - Decision: {fileID: -4194740697754729546}
+      TrueState: 
+      FalseState: Wander
 --- !u!114 &6476658088435252451
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,3 +304,31 @@ MonoBehaviour:
   playerMask:
     serializedVersion: 2
     m_Bits: 128
+--- !u!114 &-4194740697754729546
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4857506104076722876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8243c1e8881b1b1469999e4320fac0e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 1024
+--- !u!114 &7885681435954494260
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4857506104076722876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4162a429d88fc48819f4e745bf1501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBtwAttacks: 0.5

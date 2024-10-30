@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth : MonoBehaviour, ITakeDamage
 {
     [Header("Player")]
     [SerializeField] private PlayerConfig playerConfig;
