@@ -8,11 +8,15 @@ public class Weapon : MonoBehaviour
     [SerializeField] protected Transform shootPos;
     [SerializeField] protected ItemWeapon itemWeapon;
 
-    public ItemWeapon ItemWeapon//
+    public ItemWeapon ItemWeapon 
     {
         get { return itemWeapon; }//propertty access itemWeapon
     }
+
+    public CharacterWeapon CharacterParent { get; set;}
+
     private Animator animator;
+    
     private void Awake()
     {
         animator = GetComponent<Animator>();

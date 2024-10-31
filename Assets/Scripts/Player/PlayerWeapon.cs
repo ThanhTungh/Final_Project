@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class PlayerWeapon : CharacterWeapon
 {
+    [Header("Player")]
+    [SerializeField] private PlayerConfig config;
+    
     private int WeaponIndex;   //0-1 
     private Weapon[] equippedWeapons = new Weapon[2];
 
@@ -36,7 +39,8 @@ public class PlayerWeapon : CharacterWeapon
     private void CreateWeapon(Weapon weaponPrefab)
     {
         currentWeapon = Instantiate(weaponPrefab, weaponPos.position, Quaternion.identity, weaponPos);
-        equippedWeapons[WeaponIndex] = currentWeapon;       
+        equippedWeapons[WeaponIndex] = currentWeapon;    
+        equippedWeapons[WeaponIndex].CharacterParent = this;   
     }
 
     public void EquipWeapon(Weapon weapon)
@@ -101,6 +105,18 @@ public class PlayerWeapon : CharacterWeapon
         currentWeapon.UseWeapon();
         playerEnergy.UseEnergy(currentWeapon.ItemWeapon.RequireEnergy);
         //acces require energy de tru energy khi dung weapon
+    }
+
+    public float GetDamageUsingCriticalChance()
+    {
+        float damage = currentWeapon.ItemWeapon.Damage;
+        float porc = Random.Range(0f, 100f);
+        if (porc < config.CriticalChance)
+        {
+            damage += damage * (config.CriticalDamage / 100f);
+            return damage;
+        }
+        return damage;
     }
 
     private bool CanUseWeapon()

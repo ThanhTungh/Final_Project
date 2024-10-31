@@ -509,3 +509,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponPos: {fileID: 5799104823894267414}
+  config: {fileID: 11400000, guid: cf79df181d02a9443add5d10362d15e5, type: 2}

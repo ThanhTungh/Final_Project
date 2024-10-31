@@ -478,6 +478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weaponPos: {fileID: 413072652413908802}
+  config: {fileID: 11400000, guid: f1ab6cce3f0f2f94c8e4e56efd6fb819, type: 2}
 --- !u!1 &8358366066312453161
 GameObject:
   m_ObjectHideFlags: 0
