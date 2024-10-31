@@ -10,6 +10,7 @@ public class PlayerWeapon : CharacterWeapon
 
     private PlayerActions actions; 
     private PlayerEnergy playerEnergy;
+    private PlayerDetection detection;
     private PlayerMovement playerMovement;
 
 
@@ -17,6 +18,7 @@ public class PlayerWeapon : CharacterWeapon
     {
         base.Awake();
         actions = new PlayerActions();
+        detection = GetComponentInChildren<PlayerDetection>();
         playerEnergy = GetComponent<PlayerEnergy>();
         playerMovement = GetComponent<PlayerMovement>();
     }
@@ -89,6 +91,13 @@ public class PlayerWeapon : CharacterWeapon
         if (playerMovement.MoveDirection != Vector2.zero)
         {
             RotateWeapon(playerMovement.MoveDirection);
+        }
+
+        if (detection.EnemyTarget != null)
+        {
+            Vector3 dirToEnemy = detection.EnemyTarget.transform.position -
+                                 transform.position;
+            RotateWeapon(dirToEnemy);
         }
     }
 

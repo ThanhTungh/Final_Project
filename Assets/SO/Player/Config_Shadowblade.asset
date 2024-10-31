@@ -15,11 +15,11 @@ MonoBehaviour:
   Level: 0
   Name: Shadow Blade
   Icon: {fileID: 1858702564, guid: 81183d4d90d9b1947bc32467ceade557, type: 3}
-  CurrentHealth: 3
-  MaxHealth: 4
+  CurrentHealth: 999949
+  MaxHealth: 1000000
   Armor: 0
   MaxArmor: 5
-  Energy: 139
+  Energy: 144
   MaxEnergy: 150
   CriticalChance: 15
   CriticalDamage: 50
