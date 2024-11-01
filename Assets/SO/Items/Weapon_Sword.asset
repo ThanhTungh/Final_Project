@@ -19,6 +19,6 @@ MonoBehaviour:
   Damage: 2
   RequireEnergy: 0
   TimeBetweenShots: 0
-  MinSpread: -3
-  MaxSpread: 3
+  MinSpread: 0
+  MaxSpread: 0
   WeaponPrefab: {fileID: 2009609663158330949, guid: 4658539feaca26e4596b952bd06fe392, type: 3}

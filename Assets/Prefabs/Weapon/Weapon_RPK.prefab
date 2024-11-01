@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1343534127065623981}
   - component: {fileID: 1893513313921173305}
   - component: {fileID: -3930344188177527404}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Weapon_RPK
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -173,7 +173,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1678043827
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: -1153908012, guid: 619520a1b532b814e9a4903e38cf799e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

@@ -2499,7 +2499,7 @@ PrefabInstance:
     - target: {fileID: 5001634437876250203, guid: 63a62a16844f28f42964aff172bc8a1d, type: 3}
       propertyPath: predefinedItem
       value: 
-      objectReference: {fileID: 4022603871928956713, guid: d95776ad56b6ca94a8758d90a1b1d0ac, type: 3}
+      objectReference: {fileID: 4022603871928956713, guid: 65b3242ea614aa74c9cf9f0926aada4f, type: 3}
     - target: {fileID: 5001634437876250203, guid: 63a62a16844f28f42964aff172bc8a1d, type: 3}
       propertyPath: usePredefinedChest
       value: 1
