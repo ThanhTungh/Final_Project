@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 using UnityEngine.Tilemaps;
 using Random = UnityEngine.Random;
 
@@ -138,6 +139,19 @@ public class Room : MonoBehaviour
             }
         }
 
+    }
+
+    public Vector3 GetAvailableTilePos()
+    {
+        List<Vector3> availableTiles = 
+            (from tile 
+            in tiles 
+            where tile.Value // == true
+            select tile.Key).ToList(); // Linq
+        
+        int randomIndex = Random.Range(0, availableTiles.Count);
+        Vector3 pos = availableTiles[randomIndex];
+        return pos;
     }
 
     /* -------------------------------------------------------------------------------------------------------- */

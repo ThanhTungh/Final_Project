@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7617541187497874873}
   - component: {fileID: 7447076194699946049}
   - component: {fileID: 2213999884336607577}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Pickable_Weapon_MP5
   m_TagString: Untagged
   m_Icon: {fileID: 0}

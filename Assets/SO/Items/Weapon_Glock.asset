@@ -16,7 +16,7 @@ MonoBehaviour:
   Icon: {fileID: 61351275, guid: 619520a1b532b814e9a4903e38cf799e, type: 3}
   WeaponType: 1
   Rarity: 0
-  Damage: 1
+  Damage: 4
   RequireEnergy: 1
   TimeBetweenShots: 0
   MinSpread: -3

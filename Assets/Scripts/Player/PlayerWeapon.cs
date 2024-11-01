@@ -1,21 +1,24 @@
 using UnityEngine;
 
-public class PlayerWeapon : MonoBehaviour
+public class PlayerWeapon : CharacterWeapon
 {
-    [Header("Config")]
-    [SerializeField] private Transform weaponPos;
-
-    private PlayerActions actions; 
-    private PlayerEnergy playerEnergy;
-    private PlayerMovement playerMovement;
-    private Weapon currentWeapon;
-
+    [Header("Player")]
+    [SerializeField] private PlayerConfig config;
+    
     private int WeaponIndex;   //0-1 
     private Weapon[] equippedWeapons = new Weapon[2];
 
-    private void Awake()
+    private PlayerActions actions; 
+    private PlayerEnergy playerEnergy;
+    private PlayerDetection detection;
+    private PlayerMovement playerMovement;
+
+
+    protected override void Awake()
     {
+        base.Awake();
         actions = new PlayerActions();
+        detection = GetComponentInChildren<PlayerDetection>();
         playerEnergy = GetComponent<PlayerEnergy>();
         playerMovement = GetComponent<PlayerMovement>();
     }
@@ -32,15 +35,14 @@ public class PlayerWeapon : MonoBehaviour
         {
             return;
         }   
-        if (playerMovement.MoveDirection != Vector2.zero)
-        {
-            RotateWeapon(playerMovement.MoveDirection);
-        }
+        RotatePlayerWeapon();
+        
     }
     private void CreateWeapon(Weapon weaponPrefab)
     {
         currentWeapon = Instantiate(weaponPrefab, weaponPos.position, Quaternion.identity, weaponPos);
-        equippedWeapons[WeaponIndex] = currentWeapon;       
+        equippedWeapons[WeaponIndex] = currentWeapon;    
+        equippedWeapons[WeaponIndex].CharacterParent = this;   
     }
 
     public void EquipWeapon(Weapon weapon)
@@ -83,6 +85,22 @@ public class PlayerWeapon : MonoBehaviour
         currentWeapon.gameObject.SetActive(true);
         ResetWeaponForChange();
     }
+
+    private void RotatePlayerWeapon()
+    {
+        if (playerMovement.MoveDirection != Vector2.zero)
+        {
+            RotateWeapon(playerMovement.MoveDirection);
+        }
+
+        if (detection.EnemyTarget != null)
+        {
+            Vector3 dirToEnemy = detection.EnemyTarget.transform.position -
+                                 transform.position;
+            RotateWeapon(dirToEnemy);
+        }
+    }
+
     private void ShootWeapon()
     {
         if (currentWeapon == null)//khong co weapon nao thi return
@@ -98,25 +116,18 @@ public class PlayerWeapon : MonoBehaviour
         //acces require energy de tru energy khi dung weapon
     }
 
-    private void RotateWeapon(Vector3 direction)
+    public float GetDamageUsingCriticalChance()
     {
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        if(direction.x > 0)//facing right
+        float damage = currentWeapon.ItemWeapon.Damage;
+        float porc = Random.Range(0f, 100f);
+        if (porc < config.CriticalChance)
         {
-            weaponPos.localScale = Vector3.one;
-            currentWeapon.transform.localScale = Vector3.one;
-
-            //currentWeapon.transform.localScale = new Vector3(1, 1, 1);
+            damage += damage * (config.CriticalDamage / 100f);
+            return damage;
         }
-        else//facing left
-        {
-            weaponPos.localScale = new Vector3(-1, 1, 1);
-            currentWeapon.transform.localScale = new Vector3(-1, -1, 1);
-
-            //currentWeapon.transform.localScale = new Vector3(-1, 1, 1);
-        }
-        currentWeapon.transform.eulerAngles = new Vector3(0, 0, angle);
+        return damage;
     }
+
     private bool CanUseWeapon()
     {
         if(currentWeapon.ItemWeapon.WeaponType == WeaponType.Gun && playerEnergy.CanUseEnergy)

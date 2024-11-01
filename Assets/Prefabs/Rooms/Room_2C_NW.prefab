@@ -4405,7 +4405,7 @@ GameObject:
   - component: {fileID: 8356103505827778471}
   - component: {fileID: 2203412926511949667}
   - component: {fileID: 3437035718242205792}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5480,3 +5480,5 @@ MonoBehaviour:
   useDebug: 0
   roomType: 0
   extraTilemap: {fileID: 7934069102168348023}
+  posDoorNS: []
+  posDoorWE: []

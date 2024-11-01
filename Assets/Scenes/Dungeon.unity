@@ -685,63 +685,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 243287585}
   m_CullTransparentMesh: 1
---- !u!1001 &507611500
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5736318767433091325, guid: 538ee4289f58eea4c8c09b505c97a7ce, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.93
-      objectReference: {fileID: 0}
-    - target: {fileID: 5736318767433091325, guid: 538ee4289f58eea4c8c09b505c97a7ce, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 1.91
-      objectReference: {fileID: 0}
-    - target: {fileID: 5736318767433091325, guid: 538ee4289f58eea4c8c09b505c97a7ce, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5736318767433091325, guid: 538ee4289f58eea4c8c09b505c97a7ce, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5736318767433091325, guid: 538ee4289f58eea4c8c09b505c97a7ce, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5736318767433091325, guid: 538ee4289f58eea4c8c09b505c97a7ce, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5736318767433091325, guid: 538ee4289f58eea4c8c09b505c97a7ce, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5736318767433091325, guid: 538ee4289f58eea4c8c09b505c97a7ce, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5736318767433091325, guid: 538ee4289f58eea4c8c09b505c97a7ce, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5736318767433091325, guid: 538ee4289f58eea4c8c09b505c97a7ce, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6150930206628366070, guid: 538ee4289f58eea4c8c09b505c97a7ce, type: 3}
-      propertyPath: m_Name
-      value: Ghost
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 538ee4289f58eea4c8c09b505c97a7ce, type: 3}
 --- !u!1 &525905099
 GameObject:
   m_ObjectHideFlags: 0
@@ -1591,6 +1534,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1045838319}
   m_CullTransparentMesh: 1
+--- !u!1 &1117621880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1117621881}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1117621881
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1117621880}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1157259884
 GameObject:
   m_ObjectHideFlags: 0
@@ -2525,7 +2499,7 @@ PrefabInstance:
     - target: {fileID: 5001634437876250203, guid: 63a62a16844f28f42964aff172bc8a1d, type: 3}
       propertyPath: predefinedItem
       value: 
-      objectReference: {fileID: 4022603871928956713, guid: d95776ad56b6ca94a8758d90a1b1d0ac, type: 3}
+      objectReference: {fileID: 4022603871928956713, guid: 65b3242ea614aa74c9cf9f0926aada4f, type: 3}
     - target: {fileID: 5001634437876250203, guid: 63a62a16844f28f42964aff172bc8a1d, type: 3}
       propertyPath: usePredefinedChest
       value: 1
@@ -2587,4 +2561,4 @@ SceneRoots:
   - {fileID: 235592081}
   - {fileID: 2381715231059863550}
   - {fileID: 801755534}
-  - {fileID: 507611500}
+  - {fileID: 1117621881}

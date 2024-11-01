@@ -102,7 +102,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1678043827
-  m_SortingLayer: 5
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 1537993476, guid: 619520a1b532b814e9a4903e38cf799e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 7983443278766359092}
   - component: {fileID: 8168863227994140223}
   - component: {fileID: 193920345671942530}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Weapon_Lewis
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -4527,7 +4527,7 @@ GameObject:
   - component: {fileID: 683967489382585410}
   - component: {fileID: 9137494569088250667}
   - component: {fileID: 75880148476441200}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Walls
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4562,7 +4562,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5281,8 +5281,8 @@ Tilemap:
   m_TileSpriteArray:
   - m_RefCount: 8
     m_Data: {fileID: 439865981, guid: 81183d4d90d9b1947bc32467ceade557, type: 3}
-  - m_RefCount: 1
-    m_Data: {fileID: 1627087241, guid: 81183d4d90d9b1947bc32467ceade557, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 8
@@ -5293,8 +5293,8 @@ Tilemap:
     m_Data: {fileID: 1864491124, guid: 81183d4d90d9b1947bc32467ceade557, type: 3}
   - m_RefCount: 14
     m_Data: {fileID: 730752806, guid: 81183d4d90d9b1947bc32467ceade557, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 1627087241, guid: 81183d4d90d9b1947bc32467ceade557, type: 3}
   - m_RefCount: 14
     m_Data: {fileID: 988940789, guid: 81183d4d90d9b1947bc32467ceade557, type: 3}
   - m_RefCount: 1

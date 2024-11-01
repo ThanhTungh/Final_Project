@@ -18,6 +18,7 @@ public class LevelManager : Singleton<LevelManager>
     private Room currentRoom;
     private int currentLevelIndex;
     private int currentDungeonIndex;
+    private int enemyCounter;
     private GameObject currentDungeonGO;
 
     private List<GameObject> currentLevelChestItems = new List<GameObject>();
@@ -44,6 +45,37 @@ public class LevelManager : Singleton<LevelManager>
         {
             SelectedPlayer = Instantiate(GameManager.Instance.Player.PlayerPrefab);
         }
+    }
+
+
+    private void CreateEnemies()
+    {
+        int enemyAmount = GetEnemyAmount();
+        enemyCounter = enemyAmount;
+        for (int i = 0; i < enemyAmount; i++)
+        {
+            Vector3 tilePos = currentRoom.GetAvailableTilePos();
+            EnemyBrain enemy = Instantiate(GetEnemy(), tilePos, 
+                        Quaternion.identity, currentRoom.transform);
+            enemy.RoomParent = currentRoom;
+        }
+    }
+
+    private EnemyBrain GetEnemy()
+    {
+        EnemyBrain[] enemies = dungeonLibrary.Levels[currentDungeonIndex].Enemies;
+        int randomIndex = Random.Range(0, enemies.Length);
+        EnemyBrain randomEnemy = enemies[randomIndex];
+        return randomEnemy;
+    }
+
+    private int GetEnemyAmount()
+    {
+        int amount = Random.Range(
+            dungeonLibrary.Levels[currentLevelIndex].MinEnemiesPerRoom,
+            dungeonLibrary.Levels[currentLevelIndex].MaxEnemiesPerRoom);
+        
+        return amount;
     }
 
     /* 
@@ -135,6 +167,15 @@ public class LevelManager : Singleton<LevelManager>
         if (currentRoom.RoomCompleted == false)
         {
             currentRoom.CloseDoors();
+            switch (currentRoom.RoomType)
+            {
+                case RoomType.RoomEnemy:
+                    CreateEnemies();
+                    break;
+                
+                case RoomType.RoomBoss:
+                    break;
+            }
         }
     }
 
