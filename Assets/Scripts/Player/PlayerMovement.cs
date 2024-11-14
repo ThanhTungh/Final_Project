@@ -37,7 +37,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         CaptureInput();
-        RotatePlayer();      
+        RotatePlayer();    
     }
     private void FixedUpdate()
     {
@@ -103,5 +103,9 @@ public class PlayerMovement : MonoBehaviour
     private void OnDisable()
     {
         actions.Disable();
+    }
+    public void DashButtonPressed()
+    {
+        Dash();
     }
 }

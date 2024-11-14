@@ -96,7 +96,7 @@ public class PlayerWeapon : CharacterWeapon
         if (detection.EnemyTarget != null)
         {
             Vector3 dirToEnemy = detection.EnemyTarget.transform.position -
-                                 transform.position;
+                                transform.position;
             RotateWeapon(dirToEnemy);
         }
     }
@@ -158,4 +158,15 @@ public class PlayerWeapon : CharacterWeapon
     {
         actions.Disable();
     }
+
+    public void ShootButtonPressed()
+    {
+        ShootWeapon();
+    }
+
+    public void ChangeButtonPressed()
+    {
+        ChangeWeapon();
+    }
+
 }

@@ -36,6 +36,7 @@ public class MenuManager : Singleton<MenuManager>
 
 
     private SelectablePlayer currentPlayer;
+    public SelectablePlayer CurrentPlayer => currentPlayer;
 
     // Start is called before the first frame update
     void Start()
