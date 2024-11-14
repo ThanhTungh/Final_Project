@@ -33,4 +33,5 @@ public class ItemWeapon : ItemData
     {
         LevelManager.Instance.SelectedPlayer.GetComponent<PlayerWeapon>().EquipWeapon(WeaponPrefab); 
     }
+
 }

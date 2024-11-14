@@ -19,7 +19,7 @@ public class PlayerDetection : MonoBehaviour
     {
         myCollider2D = GetComponent<CircleCollider2D>();
     }
- 
+
     // Start is called before the first frame update
     void Start()
     {

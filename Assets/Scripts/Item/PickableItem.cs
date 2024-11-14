@@ -9,6 +9,7 @@ public class PickableItem : MonoBehaviour
     private PlayerActions actions;
     private bool canInteract;
     private ItemText nameText;
+    private ButtonManagerDungeon buttonManager;
 
     private void Awake() 
     {
@@ -17,6 +18,7 @@ public class PickableItem : MonoBehaviour
     private void Start() 
     {
         actions.Interactions.Pickup.performed += ctx => Pickup();    
+        buttonManager = FindObjectOfType<ButtonManagerDungeon>();
     }
 
     private void Pickup()
@@ -46,6 +48,7 @@ public class PickableItem : MonoBehaviour
         {
             canInteract = true;
             ShowItemName();
+            buttonManager.SetCurrentPickableItem(this); 
         }
     }
 
@@ -54,6 +57,7 @@ public class PickableItem : MonoBehaviour
         {
             canInteract = false;
             Destroy(nameText.gameObject);
+            buttonManager.SetCurrentPickableItem(null);
         }
     }
 
@@ -65,4 +69,9 @@ public class PickableItem : MonoBehaviour
     {
         actions.Disable();    
     }
+    public void PickupButtonPressed()
+    {
+        Pickup();
+    }
+    
 }
