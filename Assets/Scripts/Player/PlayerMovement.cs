@@ -15,16 +15,18 @@ public class PlayerMovement : MonoBehaviour
 
     public Vector2 MoveDirection => moveDirection;
 
-    private SpriteRenderer spriteRenderer; 
+    private SpriteRenderer spriteRenderer;
     private Rigidbody2D rb2D;
     private PlayerActions actions;
 
     private Vector2 moveDirection;
     private float currrentSpeed;
     private bool usingDash;
+    public Joystick joystick;
 
     private void Awake()
     {
+        joystick = FindObjectOfType<Joystick>();
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         rb2D = GetComponent<Rigidbody2D>();
         actions = new PlayerActions();
@@ -37,7 +39,7 @@ public class PlayerMovement : MonoBehaviour
     private void Update()
     {
         CaptureInput();
-        RotatePlayer();    
+        RotatePlayer();
     }
     private void FixedUpdate()
     {
@@ -50,8 +52,18 @@ public class PlayerMovement : MonoBehaviour
     }
     private void CaptureInput()
     {
-        moveDirection = actions.Movement.Move.ReadValue<Vector2>().normalized;
+        if (joystick != null && joystick.InputVector.magnitude > 0.1f)
+        {
+            // Lấy đầu vào từ joystick nếu joystick đang được sử dụng
+            moveDirection = new Vector2(joystick.InputVector.x, joystick.InputVector.y).normalized;
+        }
+        else
+        {
+            // Nếu joystick không được sử dụng, lấy đầu vào từ Input System
+            moveDirection = actions.Movement.Move.ReadValue<Vector2>().normalized;
+        }
     }
+
     private void Dash()
     {
         if (usingDash)
@@ -74,11 +86,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void RotatePlayer()//rotation player 
     {
-        if(moveDirection.x >= 0.1f)
+        if (moveDirection.x >= 0.1f)
         {
             spriteRenderer.flipX = false;
         }
-        else if(moveDirection.x < 0f)
+        else if (moveDirection.x < 0f)
         {
             spriteRenderer.flipX = true;
         }
