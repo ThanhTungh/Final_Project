@@ -87,6 +87,12 @@ public class LevelManager : Singleton<LevelManager>
         currentLevelChestItems = new List<GameObject>(dungeonLibrary.Levels[currentLevelIndex].ChestItems.AvailableItems);
     }
 
+    private void CreateTombstonesInEnemyPos(Transform enemyTransform)
+    {
+        Instantiate(dungeonLibrary.Tombstones, enemyTransform.position,
+                    Quaternion.identity, currentRoom.transform);
+    }
+
     private void ContinueDungeon()
     {
         currentDungeonIndex++;
@@ -192,6 +198,19 @@ public class LevelManager : Singleton<LevelManager>
         StartCoroutine(IEContinueDungeon());
     }
 
+    private void EnemyKilledCallback(Transform enemyTransform)
+    {
+        enemyCounter--;
+        CreateTombstonesInEnemyPos(enemyTransform);
+        if (enemyCounter <= 0)
+        {
+            if (currentRoom.RoomCompleted == false)
+            {
+                enemyCounter = 0;
+                currentRoom.SetRoomCompleted();
+            }
+        }
+    }
 
     /* 
 
@@ -203,12 +222,14 @@ public class LevelManager : Singleton<LevelManager>
     {
         Room.OnPlayerEnterEvent += PlayerEnterEventCallback;
         Portal.OnPortalEvent += PortalEventCallback;
+        EnemyHealth.OnEnemyKilledEvent += EnemyKilledCallback;
     }
 
     private void OnDisable() 
     {
         Room.OnPlayerEnterEvent -= PlayerEnterEventCallback;
         Portal.OnPortalEvent -= PortalEventCallback;
+        EnemyHealth.OnEnemyKilledEvent -= EnemyKilledCallback;
     }
 
     /* -------------------------------------------------------------------------------------------------------- */

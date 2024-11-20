@@ -14,6 +14,11 @@ public class DungeonLibrary : ScriptableObject
     [Header("Room")]
     public GameObject DoorNS;
     public GameObject DoorWE;
+
+    [Header("Extra")]
+    public GameObject Chest;
+    public GameObject Tombstones;
+
 }
 
 [Serializable]

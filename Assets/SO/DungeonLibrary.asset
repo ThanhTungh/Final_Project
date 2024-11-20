@@ -30,3 +30,5 @@ MonoBehaviour:
     ChestItems: {fileID: 11400000, guid: cb138922e31cd3c4681c25cc644b3614, type: 2}
   DoorNS: {fileID: 2131206747434318781, guid: 8940661673d6b7141a9c580b4539fcce, type: 3}
   DoorWE: {fileID: 5572339459539522092, guid: 78e52d13e86f66445a1f1d78803dd58f, type: 3}
+  Chest: {fileID: 2818699288355312404, guid: 63a62a16844f28f42964aff172bc8a1d, type: 3}
+  Tombstones: {fileID: 2487492533459484239, guid: 3e8416fac22d834418bc8950e410dce2, type: 3}
