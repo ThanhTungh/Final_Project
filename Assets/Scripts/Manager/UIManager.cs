@@ -24,6 +24,11 @@ public class UIManager : Singleton<UIManager>
 
     [SerializeField] private TextMeshProUGUI levelTMP;
     [SerializeField] private TextMeshProUGUI completedTMP;
+
+    [Header("UI Weapon")]
+    [SerializeField] private GameObject weaponPanel;
+    [SerializeField] private Image weaponIcon;
+    [SerializeField] private TextMeshProUGUI weaponEnergyTMP;
  
 
     // private void Awake()
@@ -80,13 +85,26 @@ public class UIManager : Singleton<UIManager>
         completedTMP.gameObject.SetActive(false);
     }
 
+    private void WeaponUIUpdateCallback(Weapon currentWeapon)
+    {
+        if (weaponPanel.activeSelf == false)
+        {
+            weaponPanel.SetActive(true);
+        }
+
+        weaponEnergyTMP.text = currentWeapon.ItemWeapon.RequireEnergy.ToString();
+        weaponIcon.sprite = currentWeapon.ItemWeapon.Icon;
+    }
+
     private void OnEnable() 
     {
+        PlayerWeapon.OnWeaponUIUpdateEvent += WeaponUIUpdateCallback;
         LevelManager.OnRoomCompletedEvent += RoomCompletedCallback;
     }
 
     private void OnDisable() 
     {
+        PlayerWeapon.OnWeaponUIUpdateEvent -= WeaponUIUpdateCallback;
         LevelManager.OnRoomCompletedEvent -= RoomCompletedCallback;
     }
 
