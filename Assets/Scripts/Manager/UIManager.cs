@@ -22,6 +22,9 @@ public class UIManager : Singleton<UIManager>
     [Header("UI Extra")]
     [SerializeField] private CanvasGroup fadePanel;
 
+    [SerializeField] private TextMeshProUGUI levelTMP;
+    [SerializeField] private TextMeshProUGUI completedTMP;
+ 
 
     // private void Awake()
     // {
@@ -60,4 +63,31 @@ public class UIManager : Singleton<UIManager>
 
     /* -------------------------------------------------------------------------------------------------------- */
     
+    public void UpdateLevelText(string levelText)
+    {
+        levelTMP.text = levelText;
+    }
+
+    private void RoomCompletedCallback()
+    {
+        StartCoroutine(IERoomCompleted());
+    }
+
+    private IEnumerator IERoomCompleted()
+    {
+        completedTMP.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        completedTMP.gameObject.SetActive(false);
+    }
+
+    private void OnEnable() 
+    {
+        LevelManager.OnRoomCompletedEvent += RoomCompletedCallback;
+    }
+
+    private void OnDisable() 
+    {
+        LevelManager.OnRoomCompletedEvent -= RoomCompletedCallback;
+    }
+
 }

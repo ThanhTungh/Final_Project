@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,7 @@ using Random = UnityEngine.Random;
 // Using Singleton Pattern 
 public class LevelManager : Singleton<LevelManager>
 {
+    public static event Action OnRoomCompletedEvent;
     // public static LevelManager Instance; 
 
     [Header("Config")]
@@ -63,7 +65,7 @@ public class LevelManager : Singleton<LevelManager>
 
     private EnemyBrain GetEnemy()
     {
-        EnemyBrain[] enemies = dungeonLibrary.Levels[currentDungeonIndex].Enemies;
+        EnemyBrain[] enemies = dungeonLibrary.Levels[currentLevelIndex].Enemies;
         int randomIndex = Random.Range(0, enemies.Length);
         EnemyBrain randomEnemy = enemies[randomIndex];
         return randomEnemy;
@@ -85,6 +87,13 @@ public class LevelManager : Singleton<LevelManager>
     {
         currentDungeonGO = Instantiate(dungeonLibrary.Levels[currentLevelIndex].Dungeons[currentDungeonIndex], transform);
         currentLevelChestItems = new List<GameObject>(dungeonLibrary.Levels[currentLevelIndex].ChestItems.AvailableItems);
+    }
+
+    private void CreateChestInsideRoom()
+    {
+        Vector3 chestPos = currentRoom.GetAvailableTilePos();
+        Instantiate(dungeonLibrary.Chest, chestPos, Quaternion.identity, 
+                    currentRoom.transform);
     }
 
     private void CreateTombstonesInEnemyPos(Transform enemyTransform)
@@ -154,11 +163,18 @@ public class LevelManager : Singleton<LevelManager>
         UIManager.Instance.FadeNewDungeon(1f);
         yield return new WaitForSeconds(2f);
         ContinueDungeon();
+        UIManager.Instance.UpdateLevelText(GetCurrentLevelText());
         UIManager.Instance.FadeNewDungeon(0f);
     }
 
     /* -------------------------------------------------------------------------------------------------------- */
     
+
+    private string GetCurrentLevelText()
+    {
+        return $"{dungeonLibrary.Levels[currentLevelIndex].Name} - {currentDungeonIndex + 1}";
+    }
+
     
     /* 
 
@@ -208,6 +224,8 @@ public class LevelManager : Singleton<LevelManager>
             {
                 enemyCounter = 0;
                 currentRoom.SetRoomCompleted();
+                CreateChestInsideRoom();
+                OnRoomCompletedEvent?.Invoke();
             }
         }
     }
