@@ -12,17 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec60e77010edaa4e853c67128e28b57, type: 3}
   m_Name: Config_Shadowblade
   m_EditorClassIdentifier: 
+  key: Shadow Blade
   Level: 0
   Name: Shadow Blade
   Icon: {fileID: 1858702564, guid: 81183d4d90d9b1947bc32467ceade557, type: 3}
-  CurrentHealth: 10
-  MaxHealth: 10
-  Armor: 3
-  MaxArmor: 5
-  Energy: 150
-  MaxEnergy: 150
-  CriticalChance: 15
-  CriticalDamage: 50
+  CurrentHealth: 5
+  MaxHealth: 8
+  Armor: 0
+  MaxArmor: 7
+  Energy: 169
+  MaxEnergy: 170
+  CriticalChance: 19
+  CriticalDamage: 60
   HealthMaxUpgrade: 8
   ArmorhMaxUpgrade: 8
   EnergyMaxUpgrade: 200

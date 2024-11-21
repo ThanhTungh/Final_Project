@@ -41,7 +41,7 @@ public class UIManager : Singleton<UIManager>
     void Update()
     {
         UpdatePlayerUI();
-        coinsTMP.text = CoinManager.Instance.Coins.ToString();
+        coinsTMP.text = CoinManager.Coins.ToString();
     }
 
     private void UpdatePlayerUI()
