@@ -32,6 +32,7 @@ public class EnemyHealth : MonoBehaviour, ITakeDamage
     {
         enemyHealth -= amount;
         ShowDamageColor();
+        DamageManager.Instance.ShowDamage(amount, transform);
         if (enemyHealth <= 0)
         {
             OnEnemyKilledEvent?.Invoke(transform);

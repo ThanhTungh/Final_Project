@@ -28,6 +28,8 @@ public class PlayerHealth : MonoBehaviour, ITakeDamage
 
     public void TakeDamage(float amount)
     {
+        DamageManager.Instance.ShowDamage(amount, transform);
+
         if (playerConfig.Armor > 0)
         {
             //hàm Mathf.Max được sử dụng để đảm bảo rằng các giá trị của Armor và CurrentHealth không bao giờ trở nên âm sau khi bị trừ bởi một giá trị nào đó.
