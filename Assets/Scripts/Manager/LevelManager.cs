@@ -96,6 +96,21 @@ public class LevelManager : Singleton<LevelManager>
                     currentRoom.transform);
     }
 
+    private void CreateBonusInEnemyPos(Transform enemyPos)
+    {
+        int bonusAmount = Random.Range(dungeonLibrary.Levels[currentLevelIndex].MinBonusPerEnemy,
+                                      dungeonLibrary.Levels[currentLevelIndex].MaxBonusPerEnemy);
+
+        for (int i = 0; i < bonusAmount; i++)
+        {
+            int randomBonusIndex = Random.Range(0, dungeonLibrary.EnemyBonus.Length);
+            Vector3 bonusExtraPos = (Vector3) Random.insideUnitCircle.normalized * dungeonLibrary.BonusCreationRadius;
+            Instantiate(dungeonLibrary.EnemyBonus[randomBonusIndex], 
+                        enemyPos.position + bonusExtraPos, Quaternion.identity,
+                        currentRoom.transform);
+        }
+    }
+
     private void CreateTombstonesInEnemyPos(Transform enemyTransform)
     {
         Instantiate(dungeonLibrary.Tombstones, enemyTransform.position,
@@ -218,6 +233,8 @@ public class LevelManager : Singleton<LevelManager>
     {
         enemyCounter--;
         CreateTombstonesInEnemyPos(enemyTransform);
+        CreateBonusInEnemyPos(enemyTransform);
+        
         if (enemyCounter <= 0)
         {
             if (currentRoom.RoomCompleted == false)

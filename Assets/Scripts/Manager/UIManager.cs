@@ -24,6 +24,7 @@ public class UIManager : Singleton<UIManager>
 
     [SerializeField] private TextMeshProUGUI levelTMP;
     [SerializeField] private TextMeshProUGUI completedTMP;
+    [SerializeField] private TextMeshProUGUI coinsTMP;
 
     [Header("UI Weapon")]
     [SerializeField] private GameObject weaponPanel;
@@ -39,6 +40,7 @@ public class UIManager : Singleton<UIManager>
     void Update()
     {
         UpdatePlayerUI();
+        coinsTMP.text = CoinManager.Instance.Coins.ToString();
     }
 
     private void UpdatePlayerUI()
