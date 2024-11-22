@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIManager : Singleton<UIManager>
@@ -21,7 +22,16 @@ public class UIManager : Singleton<UIManager>
 
     [Header("UI Extra")]
     [SerializeField] private CanvasGroup fadePanel;
+    [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private TextMeshProUGUI levelTMP;
+    [SerializeField] private TextMeshProUGUI completedTMP;
+    [SerializeField] private TextMeshProUGUI coinsTMP;
 
+    [Header("UI Weapon")]
+    [SerializeField] private GameObject weaponPanel;
+    [SerializeField] private Image weaponIcon;
+    [SerializeField] private TextMeshProUGUI weaponEnergyTMP;
+ 
 
     // private void Awake()
     // {
@@ -31,6 +41,7 @@ public class UIManager : Singleton<UIManager>
     void Update()
     {
         UpdatePlayerUI();
+        coinsTMP.text = CoinManager.Coins.ToString();
     }
 
     private void UpdatePlayerUI()
@@ -60,4 +71,56 @@ public class UIManager : Singleton<UIManager>
 
     /* -------------------------------------------------------------------------------------------------------- */
     
+    public void UpdateLevelText(string levelText)
+    {
+        levelTMP.text = levelText;
+    }
+
+    public void PlayButton()
+    {
+        SceneManager.LoadScene("Main");
+    }
+
+    private void RoomCompletedCallback()
+    {
+        StartCoroutine(IERoomCompleted());
+    }
+
+    private IEnumerator IERoomCompleted()
+    {
+        completedTMP.gameObject.SetActive(true);
+        yield return new WaitForSeconds(3f);
+        completedTMP.gameObject.SetActive(false);
+    }
+
+    private void WeaponUIUpdateCallback(Weapon currentWeapon)
+    {
+        if (weaponPanel.activeSelf == false)
+        {
+            weaponPanel.SetActive(true);
+        }
+
+        weaponEnergyTMP.text = currentWeapon.ItemWeapon.RequireEnergy.ToString();
+        weaponIcon.sprite = currentWeapon.ItemWeapon.Icon;
+    }
+
+    private void PlayerDeadCallback()
+    {
+        gameOverPanel.SetActive(true);
+    }
+
+    private void OnEnable() 
+    {
+        PlayerWeapon.OnWeaponUIUpdateEvent += WeaponUIUpdateCallback;
+        PlayerHealth.OnPlayerDeadEvent += PlayerDeadCallback;
+        LevelManager.OnRoomCompletedEvent += RoomCompletedCallback;
+    }
+
+    private void OnDisable() 
+    {
+        PlayerWeapon.OnWeaponUIUpdateEvent -= WeaponUIUpdateCallback;
+        PlayerHealth.OnPlayerDeadEvent -= PlayerDeadCallback;
+        LevelManager.OnRoomCompletedEvent -= RoomCompletedCallback;
+    }
+
 }

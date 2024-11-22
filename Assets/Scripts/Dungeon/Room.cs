@@ -71,6 +71,12 @@ public class Room : MonoBehaviour
         }
     }
     
+    public void SetRoomCompleted()
+    {
+        RoomCompleted = true;
+        OpenDoors();
+    }
+
     /*
 
         Open/Close Door

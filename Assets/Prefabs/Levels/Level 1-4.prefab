@@ -493,6 +493,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6010776461275603084}
     m_Modifications:
+    - target: {fileID: -8349757583675356422, guid: b49a12357269e914aaa051bd6f81248a, type: 3}
+      propertyPath: roomType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2029348098667239562, guid: b49a12357269e914aaa051bd6f81248a, type: 3}
       propertyPath: m_Name
       value: Room_3C_WSE
@@ -555,6 +559,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6010776461275603084}
     m_Modifications:
+    - target: {fileID: -2356218915458047911, guid: 5d62d5d2ed4343e43bf94fba9262c5bc, type: 3}
+      propertyPath: roomType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2872855798494109769, guid: 5d62d5d2ed4343e43bf94fba9262c5bc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26
@@ -617,6 +625,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 6010776461275603084}
     m_Modifications:
+    - target: {fileID: -1803080885992256380, guid: 80bf7afe8100c734482a5c2f4920ee09, type: 3}
+      propertyPath: roomType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2898104008984306713, guid: 80bf7afe8100c734482a5c2f4920ee09, type: 3}
       propertyPath: m_LocalPosition.x
       value: -26

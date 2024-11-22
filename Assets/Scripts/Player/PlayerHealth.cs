@@ -1,9 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour, ITakeDamage
 {
+    public static event Action OnPlayerDeadEvent;
+
+
     [Header("Player")]
     [SerializeField] private PlayerConfig playerConfig;
     private void Update(){
@@ -28,6 +32,8 @@ public class PlayerHealth : MonoBehaviour, ITakeDamage
 
     public void TakeDamage(float amount)
     {
+        DamageManager.Instance.ShowDamage(amount, transform);
+
         if (playerConfig.Armor > 0)
         {
             //hàm Mathf.Max được sử dụng để đảm bảo rằng các giá trị của Armor và CurrentHealth không bao giờ trở nên âm sau khi bị trừ bởi một giá trị nào đó.
@@ -43,9 +49,17 @@ public class PlayerHealth : MonoBehaviour, ITakeDamage
         {
             playerConfig.CurrentHealth = Mathf.Max(playerConfig.CurrentHealth - amount, 0f);
         }
+
         if (playerConfig.CurrentHealth <= 0)
         {
-            Destroy(gameObject);
+            PlayerDead();
         }
     }
+
+    private void PlayerDead()
+    {
+        OnPlayerDeadEvent?.Invoke();
+        Destroy(gameObject);
+    }
+
 }

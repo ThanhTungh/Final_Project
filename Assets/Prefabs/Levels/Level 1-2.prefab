@@ -298,6 +298,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3500436405431850480}
     m_Modifications:
+    - target: {fileID: 1669888381318670435, guid: 67e7a71ec5e217d4b9a33e7bde791407, type: 3}
+      propertyPath: roomType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1669888381318670435, guid: 67e7a71ec5e217d4b9a33e7bde791407, type: 3}
+      propertyPath: useDebug
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2637769353756433701, guid: 67e7a71ec5e217d4b9a33e7bde791407, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -425,6 +433,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3500436405431850480}
     m_Modifications:
+    - target: {fileID: -8349757583675356422, guid: b49a12357269e914aaa051bd6f81248a, type: 3}
+      propertyPath: roomType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2029348098667239562, guid: b49a12357269e914aaa051bd6f81248a, type: 3}
       propertyPath: m_Name
       value: Room_3C_WSE

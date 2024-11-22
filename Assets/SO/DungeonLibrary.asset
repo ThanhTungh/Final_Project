@@ -21,12 +21,20 @@ MonoBehaviour:
     - {fileID: 4117536456369060313, guid: fea480b4e8084bc46965e93cb9e29dbd, type: 3}
     - {fileID: 955036765924132844, guid: 4021dd08e98f5594995295ee9ef4bb56, type: 3}
     Enemies:
-    - {fileID: 3285902079999959678, guid: 7109c3e8d2401fa43b6c6801dab095bf, type: 3}
     - {fileID: 2193428772342546359, guid: 2bcf258f5a3b94e47886a173b2ec2f63, type: 3}
     - {fileID: 349836839898876482, guid: 46ca1172ee6c0a942a6cb731b8df4f1e, type: 3}
+    - {fileID: 3285902079999959678, guid: 7109c3e8d2401fa43b6c6801dab095bf, type: 3}
     - {fileID: 1412060895114776153, guid: 538ee4289f58eea4c8c09b505c97a7ce, type: 3}
     MinEnemiesPerRoom: 3
     MaxEnemiesPerRoom: 6
+    MinBonusPerEnemy: 4
+    MaxBonusPerEnemy: 8
     ChestItems: {fileID: 11400000, guid: cb138922e31cd3c4681c25cc644b3614, type: 2}
   DoorNS: {fileID: 2131206747434318781, guid: 8940661673d6b7141a9c580b4539fcce, type: 3}
   DoorWE: {fileID: 5572339459539522092, guid: 78e52d13e86f66445a1f1d78803dd58f, type: 3}
+  Chest: {fileID: 2818699288355312404, guid: 63a62a16844f28f42964aff172bc8a1d, type: 3}
+  Tombstones: {fileID: 2487492533459484239, guid: 3e8416fac22d834418bc8950e410dce2, type: 3}
+  EnemyBonus:
+  - {fileID: -6875964903250695368, guid: af324fc21e1af674da6f5618e46d9627, type: 3}
+  - {fileID: 3079915799144652068, guid: 6ed01728a55245249bed7bfcf141fc18, type: 3}
+  BonusCreationRadius: 2
