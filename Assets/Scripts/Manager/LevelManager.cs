@@ -211,7 +211,7 @@ public class LevelManager : Singleton<LevelManager>
                     break;
                 
                 case RoomType.RoomBoss:
-                    UIManager.Instance.PlayerFinishRoom();
+                    // UIManager.Instance.PlayerFinishRoom();
                     break;
             }
         }

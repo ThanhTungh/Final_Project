@@ -107,7 +107,7 @@ public class UIManager : Singleton<UIManager>
 
     public void PlayerFinishRoom()
     {
-        gameFinishPanel.SetActive(true);
+        // gameFinishPanel.SetActive(true);
     }
 
     private void PlayerDeadCallback()
