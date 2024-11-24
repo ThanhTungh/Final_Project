@@ -8,7 +8,6 @@ public class EndGame : MonoBehaviour
 {
     public void clickButtonPlay()
     {
-        Destroy(gameObject);
         SceneManager.LoadScene("Main");
     }
 }
