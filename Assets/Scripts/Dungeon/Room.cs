@@ -55,7 +55,7 @@ public class Room : MonoBehaviour
     // Get Tiles
     private void GetTiles()
     {
-        if (NormalRoom())
+        if (NormalRoom() || FinishRoom())
         {
             return;
         }
@@ -110,7 +110,7 @@ public class Room : MonoBehaviour
 
     private void GenerateRoomUsingTemplate()
     {
-        if (NormalRoom())
+        if (NormalRoom() || FinishRoom())
         {
             return;
         }
@@ -204,6 +204,11 @@ public class Room : MonoBehaviour
     private bool NormalRoom()
     {
         return (roomType == RoomType.RoomEntrance || roomType == RoomType.RoomFree);
+    }
+
+    private bool FinishRoom()
+    {
+        return (roomType == RoomType.RoomBoss);
     }
 
     // Triggle when player go to room
