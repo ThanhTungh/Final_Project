@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ec60e77010edaa4e853c67128e28b57, type: 3}
   m_Name: Config_Ganfald
   m_EditorClassIdentifier: 
+  key: Ganfald
   Level: 0
   Name: Ganfald
   Icon: {fileID: 986637157, guid: 81183d4d90d9b1947bc32467ceade557, type: 3}

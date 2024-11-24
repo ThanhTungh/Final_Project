@@ -1,9 +1,11 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+
 
 public class MenuManager : Singleton<MenuManager>
 {
@@ -35,8 +37,27 @@ public class MenuManager : Singleton<MenuManager>
     [SerializeField] private GameObject selectButton;
 
 
+    public PlayFabManager playFabManager => PlayFabManager.Instance;
     private SelectablePlayer currentPlayer;
     public SelectablePlayer CurrentPlayer => currentPlayer;
+
+    public static string jsonString;
+
+    private void LoadDataPlayer()
+    {
+        playFabManager.LoadPlayerData(CurrentPlayer.Config.key);
+    }
+
+    private void initData()
+    {
+        PlayerModel playerModel = JsonConvert.DeserializeObject<PlayerModel>(jsonString);
+        // Now you can access the deserialized values:
+        CurrentPlayer.Config.Level = playerModel.level;
+        CurrentPlayer.Config.MaxHealth = playerModel.MaxHealth;
+        CurrentPlayer.Config.MaxArmor = playerModel.MaxArmor;
+        CurrentPlayer.Config.MaxEnergy = playerModel.MaxEnergy;
+        CurrentPlayer.Config.Unlocked = playerModel.unlock;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -44,9 +65,9 @@ public class MenuManager : Singleton<MenuManager>
         CreationPlayer();
     }
 
-    private void Update() 
+    private void Update()
     {
-        coinsTMP.text = CoinManager.Instance.Coins.ToString();
+        coinsTMP.text = CoinManager.Coins.ToString();
     }
 
     private void CreationPlayer()
@@ -55,9 +76,9 @@ public class MenuManager : Singleton<MenuManager>
         {
             PlayerMovement player = Instantiate(players[i].Player, players[i].CreationPos.position,
                                                 Quaternion.identity, players[i].CreationPos);
-                                            // each player has movement so need call "PlayerMovement" class
+            // each player has movement so need call "PlayerMovement" class
 
-                                            // Create a clone of an object in prefab,... (https://docs.unity3d.com/ScriptReference/Object.Instantiate.html)
+            // Create a clone of an object in prefab,... (https://docs.unity3d.com/ScriptReference/Object.Instantiate.html)
             player.enabled = false;
             var playerRb = player.GetComponent<Rigidbody2D>();
             playerRb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -84,7 +105,7 @@ public class MenuManager : Singleton<MenuManager>
 
     public void UpgradePlayer()
     {
-        if (CoinManager.Instance.Coins >= currentPlayer.Config.UpgradeCost)
+        if (CoinManager.Coins >= currentPlayer.Config.UpgradeCost)
         {
             CoinManager.Instance.RemoveCoins(currentPlayer.Config.UpgradeCost);
             UpgradePlayerStats();
@@ -94,7 +115,7 @@ public class MenuManager : Singleton<MenuManager>
 
     public void UnlockPlayer()
     {
-        if (CoinManager.Instance.Coins >= currentPlayer.Config.UnlockCost)
+        if (CoinManager.Coins >= currentPlayer.Config.UnlockCost)
         {
             CoinManager.Instance.RemoveCoins(currentPlayer.Config.UnlockCost);
             currentPlayer.Config.Unlocked = true;
@@ -119,7 +140,7 @@ public class MenuManager : Singleton<MenuManager>
         config.MaxEnergy = Math.Min(config.MaxEnergy, config.EnergyMaxUpgrade);
         config.CriticalChance = Math.Min(config.CriticalChance, config.CriticalMaxUpgrade);
 
-        
+
         float upgrade = config.UpgradeCost;
         config.UpgradeCost = upgrade + (upgrade * (config.UpgradeMultiplier / 100f));
     }
@@ -143,6 +164,10 @@ public class MenuManager : Singleton<MenuManager>
         armorBar.fillAmount = currentPlayer.Config.MaxArmor / currentPlayer.Config.ArmorhMaxUpgrade;
         energyBar.fillAmount = currentPlayer.Config.MaxEnergy / currentPlayer.Config.EnergyMaxUpgrade;
         criticalBar.fillAmount = currentPlayer.Config.CriticalChance / currentPlayer.Config.CriticalMaxUpgrade;
+        
+        LoadDataPlayer();
+        Invoke("initData", 0.5f);
+        
     }
 
     private void VerifyPlayer()
@@ -167,8 +192,26 @@ public class MenuManager : Singleton<MenuManager>
     public void ClosePlayerPanel()
     {
         playerPanel.SetActive(false);
-
+        SaveDataPlayer(CurrentPlayer.Config);
     }
+
+
+
+    private void SaveDataPlayer(PlayerConfig playerConfig)
+    {
+        PlayerModel playerModel = new PlayerModel();
+        playerModel.level = playerConfig.Level;
+        playerModel.MaxHealth = playerConfig.MaxHealth;
+        playerModel.MaxArmor = playerConfig.MaxArmor;
+        playerModel.MaxEnergy = playerConfig.MaxEnergy;
+        playerModel.unlock = playerConfig.Unlocked;
+
+        var key = playerConfig.key;
+        string json = JsonConvert.SerializeObject(playerModel);
+        Debug.Log(json + "----");
+        playFabManager.SavePlayerData(key, json);
+    }
+
 
 }
 
@@ -178,3 +221,5 @@ public class PlayerCreation
     public PlayerMovement Player;
     public Transform CreationPos;
 }
+
+
