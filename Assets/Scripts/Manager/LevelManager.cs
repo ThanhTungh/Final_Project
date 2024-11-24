@@ -229,6 +229,11 @@ public class LevelManager : Singleton<LevelManager>
         StartCoroutine(IEContinueDungeon());
     }
 
+    private void TouchEndGameEventCallback()
+    {
+        StartCoroutine(IEContinueDungeon());
+    }
+
     private void EnemyKilledCallback(Transform enemyTransform)
     {
         enemyCounter--;
@@ -258,6 +263,7 @@ public class LevelManager : Singleton<LevelManager>
         Room.OnPlayerEnterEvent += PlayerEnterEventCallback;
         Portal.OnPortalEvent += PortalEventCallback;
         EnemyHealth.OnEnemyKilledEvent += EnemyKilledCallback;
+        OnePiece.OnTouchEndGameEvent += TouchEndGameEventCallback;
     }
 
     private void OnDisable() 
@@ -265,6 +271,7 @@ public class LevelManager : Singleton<LevelManager>
         Room.OnPlayerEnterEvent -= PlayerEnterEventCallback;
         Portal.OnPortalEvent -= PortalEventCallback;
         EnemyHealth.OnEnemyKilledEvent -= EnemyKilledCallback;
+        OnePiece.OnTouchEndGameEvent -= TouchEndGameEventCallback;
     }
 
     /* -------------------------------------------------------------------------------------------------------- */
