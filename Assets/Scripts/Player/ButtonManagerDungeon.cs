@@ -51,6 +51,7 @@ public class ButtonManagerDungeon : MonoBehaviour
     }
     public void OnShootButtonClicked()
     {
+        SoundManager.Instance.PlaySFX(SoundName.Shoot);
         // Gọi hàm ShootWeapon của PlayerWeapon khi button được nhấn
         playerWeapon.ShootButtonPressed();
     }

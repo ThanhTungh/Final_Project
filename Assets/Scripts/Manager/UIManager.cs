@@ -106,6 +106,7 @@ public class UIManager : Singleton<UIManager>
 
     private void PlayerDeadCallback()
     {
+        SoundManager.Instance.PlaySFX(SoundName.CharacterEnd);
         gameOverPanel.SetActive(true);
     }
 

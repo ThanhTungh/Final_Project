@@ -117,6 +117,7 @@ public class PlayerWeapon : CharacterWeapon
         {
             return;
         }
+        SoundManager.Instance.PlaySFX(SoundName.Shoot);
         currentWeapon.UseWeapon();
         playerEnergy.UseEnergy(currentWeapon.ItemWeapon.RequireEnergy);
         //acces require energy de tru energy khi dung weapon
