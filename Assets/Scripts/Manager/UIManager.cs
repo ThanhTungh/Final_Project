@@ -23,6 +23,7 @@ public class UIManager : Singleton<UIManager>
     [Header("UI Extra")]
     [SerializeField] private CanvasGroup fadePanel;
     [SerializeField] private GameObject gameOverPanel;
+    [SerializeField] private GameObject gameFinishPanel;
     [SerializeField] private TextMeshProUGUI levelTMP;
     [SerializeField] private TextMeshProUGUI completedTMP;
     [SerializeField] private TextMeshProUGUI coinsTMP;
@@ -41,7 +42,7 @@ public class UIManager : Singleton<UIManager>
     void Update()
     {
         UpdatePlayerUI();
-        coinsTMP.text = CoinManager.Instance.Coins.ToString();
+        coinsTMP.text = CoinManager.Coins.ToString();
     }
 
     private void UpdatePlayerUI()
@@ -102,6 +103,11 @@ public class UIManager : Singleton<UIManager>
 
         weaponEnergyTMP.text = currentWeapon.ItemWeapon.RequireEnergy.ToString();
         weaponIcon.sprite = currentWeapon.ItemWeapon.Icon;
+    }
+
+    public void PlayerFinishRoom()
+    {
+        // gameFinishPanel.SetActive(true);
     }
 
     private void PlayerDeadCallback()
