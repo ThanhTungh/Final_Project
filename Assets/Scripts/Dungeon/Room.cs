@@ -26,7 +26,7 @@ public class Room : MonoBehaviour
 
     [Header("Grid")]
     [SerializeField] private Tilemap extraTilemap; // https://learn.unity.com/tutorial/introduction-to-tilemaps#5f35935dedbc2a0894536cfb
-    
+
     [Header("Doors")]
     [SerializeField] private Transform[] posDoorNS;
     [SerializeField] private Transform[] posDoorWE;
@@ -35,7 +35,7 @@ public class Room : MonoBehaviour
     // check Room is completed?
     public bool RoomCompleted { get; set; }
 
-    public RoomType RoomType => roomType; 
+    public RoomType RoomType => roomType;
 
 
     // Position(Key) - Free/Not Free(Value)
@@ -62,15 +62,15 @@ public class Room : MonoBehaviour
 
         foreach (Vector3Int tilePos in extraTilemap.cellBounds.allPositionsWithin)  // Vector3Int: https://docs.unity3d.com/ScriptReference/Vector3Int.html
 
-                                                                                    // cellBounds: https://docs.unity3d.com/ScriptReference/Tilemaps.Tilemap-cellBounds.html
-                                                                                    // cellBounds.allPositionsWithin: Returns all positions that lie within the specified bounding box. These positions are usually represented as vectors.
+        // cellBounds: https://docs.unity3d.com/ScriptReference/Tilemaps.Tilemap-cellBounds.html
+        // cellBounds.allPositionsWithin: Returns all positions that lie within the specified bounding box. These positions are usually represented as vectors.
         {
             Vector3 position = extraTilemap.CellToWorld(tilePos); // CellToWorld: https://docs.unity3d.com/ScriptReference/GridLayout.CellToWorld.html
             Vector3 newPosition = new Vector3(position.x + 0.5f, position.y + 0.5f, position.z);
             tiles.Add(newPosition, true);
         }
     }
-    
+
     public void SetRoomCompleted()
     {
         RoomCompleted = true;
@@ -118,7 +118,7 @@ public class Room : MonoBehaviour
         int randomIndex = Random.Range(0, LevelManager.Instance.RoomTemplates.Templates.Length);
         Texture2D texture = LevelManager.Instance.RoomTemplates.Templates[randomIndex];
         List<Vector3> positions = new List<Vector3>(tiles.Keys);
-        
+
         for (int y = 0, a = 0; y < texture.height; y++)
         {
             for (int x = 0; x < texture.width; x++, a++)
@@ -131,8 +131,8 @@ public class Room : MonoBehaviour
                     if (pixelColor == prop.PropColor)
                     {
                         GameObject propInstance = Instantiate(prop.PropPrefab, extraTilemap.transform); // Instantiate: https://docs.unity3d.com/ScriptReference/Object.Instantiate.html
-                                                                                                        
-                                                                                                        // transform: include position, rotation, scale... in Unity
+
+                        // transform: include position, rotation, scale... in Unity
 
                         propInstance.transform.position = new Vector3(positions[a].x, positions[a].y, 0f);
 
@@ -149,12 +149,12 @@ public class Room : MonoBehaviour
 
     public Vector3 GetAvailableTilePos()
     {
-        List<Vector3> availableTiles = 
-            (from tile 
-            in tiles 
-            where tile.Value // == true
-            select tile.Key).ToList(); // Linq
-        
+        List<Vector3> availableTiles =
+            (from tile
+            in tiles
+             where tile.Value // == true
+             select tile.Key).ToList(); // Linq
+
         int randomIndex = Random.Range(0, availableTiles.Count);
         Vector3 pos = availableTiles[randomIndex];
         return pos;
@@ -212,7 +212,7 @@ public class Room : MonoBehaviour
     }
 
     // Triggle when player go to room
-    private void OnTriggerEnter2D(Collider2D other) 
+    private void OnTriggerEnter2D(Collider2D other)
     {
         if (NormalRoom())
         {
@@ -230,9 +230,10 @@ public class Room : MonoBehaviour
 
 
     // Using Gizmos to give visual debugging or setup aids in the Scene view. (Extra GameObject assigned)
-    private void OnDrawGizmosSelected() { 
-                                            // Gizmos: https://docs.unity3d.com/ScriptReference/Gizmos.html
-                                            // OnDrawGizmosSelected(): https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnDrawGizmosSelected.html
+    private void OnDrawGizmosSelected()
+    {
+        // Gizmos: https://docs.unity3d.com/ScriptReference/Gizmos.html
+        // OnDrawGizmosSelected(): https://docs.unity3d.com/ScriptReference/MonoBehaviour.OnDrawGizmosSelected.html
 
         if (useDebug == false)
         {
@@ -241,10 +242,10 @@ public class Room : MonoBehaviour
 
         if (tiles.Count > 0)
         {
-            foreach (KeyValuePair<Vector3, bool> tile in tiles) 
-                                                                // KeyValuePair: https://docs.unity.com/ugs/en-us/packages/com.unity.services.multiplayer/1.0/api/Unity.Services.Relay.Models.KeyValuePair
-                                                                // KeyValuePair: get value from data structures, ... through key-value 
-                                                                
+            foreach (KeyValuePair<Vector3, bool> tile in tiles)
+            // KeyValuePair: https://docs.unity.com/ugs/en-us/packages/com.unity.services.multiplayer/1.0/api/Unity.Services.Relay.Models.KeyValuePair
+            // KeyValuePair: get value from data structures, ... through key-value 
+
             {
                 if (tile.Value) // true
                 {

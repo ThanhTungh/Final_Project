@@ -9,5 +9,4 @@ public class EndGame : MonoBehaviour
     {
         SceneManager.LoadScene("Main");
     }
-    
 }
