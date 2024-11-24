@@ -39,6 +39,7 @@ public class LevelManager : Singleton<LevelManager>
     private void Start()
     {
         CreateDungeon();
+        // SoundManager.Instance.PlaySoundBackGround(SoundName.Background2);
     }
 
     private void CreatePlayer()

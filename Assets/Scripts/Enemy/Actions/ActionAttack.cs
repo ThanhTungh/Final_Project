@@ -26,6 +26,7 @@ public class ActionAttack : FSMAction
         attackTimer -= Time.deltaTime;
         if (attackTimer <= 0f)
         {
+            SoundManager.Instance.PlaySFX(SoundName.EnemyShoot);
             enemyWeapon.UseWeapon();
             attackTimer = timeBtwAttacks;
         }
