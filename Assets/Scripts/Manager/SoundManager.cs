@@ -9,23 +9,6 @@ public class SoundManager : Singleton<SoundManager>
     public AudioSource background;
     public AudioSource SFX;
 
-    // private void Start() 
-    // {
-    //     PlaySoundBackGround(SoundName.Background1);
-    // }
-
-    // public void PlaySoundBackGround(SoundName soundName)
-    // {
-    //     foreach (var sound in sounds)
-    //     {
-    //         if (sound.soundName == soundName)
-    //         {
-    //             background.clip = sound.audioClip;
-    //             background.Play();
-    //         }
-    //     }
-    // }
-
     public void PlaySFX(SoundName soundName)
     {
         foreach (var sound in sounds)
