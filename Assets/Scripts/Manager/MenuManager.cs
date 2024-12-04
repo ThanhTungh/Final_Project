@@ -37,6 +37,7 @@ public class MenuManager : Singleton<MenuManager>
 
     private SelectablePlayer currentPlayer;
     public SelectablePlayer CurrentPlayer => currentPlayer;
+    private bool playerSelected;
 
     // Start is called before the first frame update
     void Start()
@@ -73,12 +74,14 @@ public class MenuManager : Singleton<MenuManager>
 
     public void SelectPlayer()
     {
+        if (playerSelected) return;
         if (currentPlayer.Config.Unlocked)
         {
             currentPlayer.GetComponent<PlayerMovement>().enabled = true; // currentPlayer => player in CreationPlayer() found
             currentPlayer.Config.ResetPlayerStats();
             GameManager.Instance.Player = currentPlayer.Config;
             ClosePlayerPanel();
+            playerSelected = true;
         }
     }
 
