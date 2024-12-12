@@ -2,16 +2,16 @@ using System;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "RoomTemplates", menuName = "Dungeon/Room Templates")]
-public class RoomTemplate : ScriptableObject // ScriptableObject: https://docs.unity3d.com/Manual/class-ScriptableObject.html
+public class RoomTemplate : ScriptableObject 
 {
     [Header("Templates")]
-    public Texture2D[] Templates; // Texture2D: Renderer image of this object (https://docs.unity3d.com/ScriptReference/Texture2D.html)
+    public Texture2D[] Templates; 
 
     [Header("Props")]
     public RoomProp[] PropsData;
 }
 
-[Serializable] // https://docs.unity3d.com/ScriptReference/Serializable.html
+[Serializable] 
 public class RoomProp
 {
     public string Name;

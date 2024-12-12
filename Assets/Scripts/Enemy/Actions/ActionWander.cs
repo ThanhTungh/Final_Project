@@ -35,7 +35,7 @@ public class ActionWander : FSMAction
     {
         moveDirection = (movePosition - transform.position).normalized;
         transform.Translate(moveDirection * (wanderSpeed * Time.deltaTime));
-        if (CanGetNewPosition()) // Action always
+        if (CanGetNewPosition()) 
         {
             GetNewMovePosition();
         }
@@ -43,7 +43,6 @@ public class ActionWander : FSMAction
 
     private void GetNewMovePosition()
     {
-        // Use 1 of 2. Do no use both
         if (useRandomMovement)
         {
             movePosition = transform.position + GetRandomDirection();
@@ -73,7 +72,7 @@ public class ActionWander : FSMAction
         return false;
     }
 
-    private Vector3 GetTilePos() // get available position for "enemy" to movement and avoid "obstacles" exist
+    private Vector3 GetTilePos() 
     {
         return enemy.RoomParent.GetAvailableTilePos();
     }

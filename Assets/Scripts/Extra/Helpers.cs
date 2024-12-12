@@ -4,7 +4,6 @@ using UnityEngine;
 
 public static class Helpers
 {
-    // IEnumerator(Coroutine): https://docs.unity3d.com/Manual/Coroutines.html
     public static IEnumerator IEFade(CanvasGroup canvas, float desiredValue, float fadeTime)
     {
         float timer = 0f;

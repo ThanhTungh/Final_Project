@@ -10,8 +10,8 @@ public class MenuPortal : MonoBehaviour
     private IEnumerator IELoadDungeon()
     {
         fade.gameObject.SetActive(true);
-        StartCoroutine(Helpers.IEFade(fade, 1f, 2f)); // time fade from 1->2s
-        yield return new WaitForSeconds(2.5f); // load scene after 2.5s
+        StartCoroutine(Helpers.IEFade(fade, 1f, 2f)); 
+        yield return new WaitForSeconds(2.5f); 
         SceneManager.LoadScene("Dungeon");
     }
 

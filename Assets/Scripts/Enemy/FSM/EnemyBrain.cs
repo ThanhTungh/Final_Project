@@ -15,7 +15,6 @@ public class EnemyBrain : MonoBehaviour
     public Transform Player { get; set; }   
 
 
-    // Start is called before the first frame update
     private void Start()
     {
         ChangeState(initialStateID);

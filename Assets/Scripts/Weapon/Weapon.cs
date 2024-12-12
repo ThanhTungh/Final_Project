@@ -10,7 +10,7 @@ public class Weapon : MonoBehaviour
 
     public ItemWeapon ItemWeapon 
     {
-        get { return itemWeapon; }//propertty access itemWeapon
+        get { return itemWeapon; }
     }
 
     public CharacterWeapon CharacterParent { get; set;}
@@ -26,7 +26,7 @@ public class Weapon : MonoBehaviour
     {
         animator.SetTrigger("Shoot");
     }
-    public virtual void UseWeapon()//dung virtual de override method nay o class con gun weapon va melee weapon
+    public virtual void UseWeapon()
     {
 
     }

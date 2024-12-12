@@ -9,7 +9,6 @@ public class BonusBase : MonoBehaviour
 
     protected Transform player;
 
-    // Update is called once per frame
     private void Update()
     {
         if (player == null) return;

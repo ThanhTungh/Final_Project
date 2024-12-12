@@ -5,7 +5,7 @@ using UnityEngine;
 public class CoinManager : PersistentSingleton<CoinManager>
 {   
     [Header("Config")]
-    [SerializeField] private float initialCoinsTest; // Test amount coin
+    [SerializeField] private float initialCoinsTest; 
 
 
     public float Coins { get; private set; }
@@ -13,14 +13,13 @@ public class CoinManager : PersistentSingleton<CoinManager>
 
     private void Start() 
     {
-        Coins = PlayerPrefs.GetFloat(COIN_KEY, initialCoinsTest); // Edit => Clear All PlayerPrefs (in tool to reset)
+        Coins = PlayerPrefs.GetFloat(COIN_KEY, initialCoinsTest); 
     }
 
     public void AddCoins(float amount)
     {
         Coins += amount;
-        PlayerPrefs.SetFloat(COIN_KEY, Coins); // PlayerPrefs: https://docs.unity3d.com/ScriptReference/PlayerPrefs.html
-                                               // Unity uses SharedPreferences API to access the PlayerPrefs data and SharedPreferences.Editor API to modify it.
+        PlayerPrefs.SetFloat(COIN_KEY, Coins);
         PlayerPrefs.Save();
     }
 

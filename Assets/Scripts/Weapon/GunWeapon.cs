@@ -6,7 +6,6 @@ public class GunWeapon : Weapon
     {
         PlayShootAnimation();
 
-        //Create projectile
         Projectile projectile = Instantiate(projectilePrefab);
         projectile.transform.position = shootPos.position;
         projectile.Direction = shootPos.right;

@@ -23,7 +23,7 @@ public class Chest : MonoBehaviour
         {
             Instantiate(predefinedItem, transform.position, Quaternion.identity, itemPos);
         }
-        else// Random item
+        else
         {
             GameObject randomItem = LevelManager.Instance.GetRandomItemForChest();
             Instantiate(randomItem, transform.position, Quaternion.identity, itemPos);

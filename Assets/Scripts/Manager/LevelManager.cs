@@ -3,11 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
-// Using Singleton Pattern 
+
 public class LevelManager : Singleton<LevelManager>
 {
     public static event Action OnRoomCompletedEvent;
-    // public static LevelManager Instance; 
+
 
     [Header("Config")]
     [SerializeField] private RoomTemplate roomTemplates;
@@ -25,10 +25,6 @@ public class LevelManager : Singleton<LevelManager>
 
     private List<GameObject> currentLevelChestItems = new List<GameObject>();
 
-    // private void Awake() // Awake(): https://docs.unity3d.com/ScriptReference/MonoBehaviour.Awake.html
-    // { 
-    //     Instance = this;
-    // }
 
     protected override void Awake()
     {
@@ -39,7 +35,7 @@ public class LevelManager : Singleton<LevelManager>
     private void Start()
     {
         CreateDungeon();
-        // SoundManager.Instance.PlaySoundBackGround(SoundName.Background2);
+        
     }
 
     private void CreatePlayer()
@@ -81,9 +77,7 @@ public class LevelManager : Singleton<LevelManager>
         return amount;
     }
 
-    /* 
-        Create Dungeons with LevelManager
-    */
+
     private void CreateDungeon()
     {
         currentDungeonGO = Instantiate(dungeonLibrary.Levels[currentLevelIndex].Dungeons[currentDungeonIndex], transform);
@@ -100,7 +94,7 @@ public class LevelManager : Singleton<LevelManager>
     private void CreateBonusInEnemyPos(Transform enemyPos)
     {
         int bonusAmount = Random.Range(dungeonLibrary.Levels[currentLevelIndex].MinBonusPerEnemy,
-                                      dungeonLibrary.Levels[currentLevelIndex].MaxBonusPerEnemy);
+                                    dungeonLibrary.Levels[currentLevelIndex].MaxBonusPerEnemy);
 
         for (int i = 0; i < bonusAmount; i++)
         {
@@ -136,12 +130,10 @@ public class LevelManager : Singleton<LevelManager>
     /* -------------------------------------------------------------------------------------------------------- */
 
 
-    /* 
-        Position Player when start a dungeon
-    */
+
     private void PositionPlayer()
     {
-        Room[] dungeonRooms = currentDungeonGO.GetComponentsInChildren<Room>(); // GetComponentsInChildren<T>: https://docs.unity3d.com/ScriptReference/Component.GetComponentsInChildren.html
+        Room[] dungeonRooms = currentDungeonGO.GetComponentsInChildren<Room>(); 
         Room entranceRoom = null;
         for (int i = 0; i < dungeonRooms.Length; i++)
         {
@@ -169,11 +161,7 @@ public class LevelManager : Singleton<LevelManager>
         return item;
     }
 
-    /* 
 
-        IEnumerator (Coroutine) of Fade alpha in UIManager when changing each dungeon
-
-    */
     private IEnumerator IEContinueDungeon()
     {
         UIManager.Instance.FadeNewDungeon(1f);
@@ -183,7 +171,7 @@ public class LevelManager : Singleton<LevelManager>
         UIManager.Instance.FadeNewDungeon(0f);
     }
 
-    /* -------------------------------------------------------------------------------------------------------- */
+
     
 
     private string GetCurrentLevelText()
@@ -192,11 +180,7 @@ public class LevelManager : Singleton<LevelManager>
     }
 
     
-    /* 
 
-        event Action<Room> OnPlayerEnterEvent
-
-    */
 
     private void PlayerEnterEventCallback(Room room)
     {
@@ -217,14 +201,7 @@ public class LevelManager : Singleton<LevelManager>
         }
     }
 
-    /* -------------------------------------------------------------------------------------------------------- */
 
-
-    /* 
-
-        event Action OnPortalEvent
-
-    */
     private void PortalEventCallback()
     {
         StartCoroutine(IEContinueDungeon());
@@ -253,11 +230,7 @@ public class LevelManager : Singleton<LevelManager>
         }
     }
 
-    /* 
 
-        Multicast Delegate: https://learn.unity.com/tutorial/delegates
-
-    */
 
     private void OnEnable() 
     {
@@ -275,6 +248,6 @@ public class LevelManager : Singleton<LevelManager>
         OnePiece.OnTouchEndGameEvent -= TouchEndGameEventCallback;
     }
 
-    /* -------------------------------------------------------------------------------------------------------- */
+
     
 }

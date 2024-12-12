@@ -21,7 +21,6 @@ public class EnemyHealth : MonoBehaviour, ITakeDamage
         sp = GetComponent<SpriteRenderer>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         enemyHealth = health;

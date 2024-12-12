@@ -54,12 +54,10 @@ public class PlayerMovement : MonoBehaviour
     {
         if (joystick != null && joystick.InputVector.magnitude > 0.1f)
         {
-            // Lấy đầu vào từ joystick nếu joystick đang được sử dụng
             moveDirection = new Vector2(joystick.InputVector.x, joystick.InputVector.y).normalized;
         }
         else
         {
-            // Nếu joystick không được sử dụng, lấy đầu vào từ Input System
             moveDirection = actions.Movement.Move.ReadValue<Vector2>().normalized;
         }
     }
@@ -84,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
         usingDash = false;
     }
 
-    private void RotatePlayer()//rotation player 
+    private void RotatePlayer()
     {
         if (moveDirection.x >= 0.1f)
         {

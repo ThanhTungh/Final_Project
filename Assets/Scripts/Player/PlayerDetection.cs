@@ -6,8 +6,7 @@ public class PlayerDetection : MonoBehaviour
 {
     [Header("Config")]
     [SerializeField] private float rangeDetection;
-    [SerializeField] private LayerMask obstacleMask; // LayerMask: https://docs.unity3d.com/ScriptReference/LayerMask.html
-
+    [SerializeField] private LayerMask obstacleMask; 
 
     public EnemyHealth EnemyTarget { get; set; }
 
@@ -20,7 +19,6 @@ public class PlayerDetection : MonoBehaviour
         myCollider2D = GetComponent<CircleCollider2D>();
     }
 
-    // Start is called before the first frame update
     void Start()
     {
         myCollider2D.radius = rangeDetection;

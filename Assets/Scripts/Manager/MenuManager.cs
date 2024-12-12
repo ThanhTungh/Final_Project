@@ -39,7 +39,6 @@ public class MenuManager : Singleton<MenuManager>
     public SelectablePlayer CurrentPlayer => currentPlayer;
     private bool playerSelected;
 
-    // Start is called before the first frame update
     void Start()
     {
         CreationPlayer();
@@ -56,9 +55,6 @@ public class MenuManager : Singleton<MenuManager>
         {
             PlayerMovement player = Instantiate(players[i].Player, players[i].CreationPos.position,
                                                 Quaternion.identity, players[i].CreationPos);
-                                            // each player has movement so need call "PlayerMovement" class
-
-                                            // Create a clone of an object in prefab,... (https://docs.unity3d.com/ScriptReference/Object.Instantiate.html)
             player.enabled = false;
             var playerRb = player.GetComponent<Rigidbody2D>();
             playerRb.constraints = RigidbodyConstraints2D.FreezeAll;
@@ -77,7 +73,7 @@ public class MenuManager : Singleton<MenuManager>
         if (playerSelected) return;
         if (currentPlayer.Config.Unlocked)
         {
-            currentPlayer.GetComponent<PlayerMovement>().enabled = true; // currentPlayer => player in CreationPlayer() found
+            currentPlayer.GetComponent<PlayerMovement>().enabled = true; 
             currentPlayer.Config.ResetPlayerStats();
             GameManager.Instance.Player = currentPlayer.Config;
             ClosePlayerPanel();

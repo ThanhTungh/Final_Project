@@ -11,8 +11,7 @@ public class ButtonManagerDungeon : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton setup
-        if (Instance != null && Instance != this)
+        if (Instance != null && Instance != this)
         {
             Destroy(gameObject);
         }
@@ -46,18 +45,16 @@ public class ButtonManagerDungeon : MonoBehaviour
 
     public void OnDashButtonClicked()
     {
-        // Gọi hàm Dash của PlayerMovement khi button được nhấn
+    
         playerMovement.DashButtonPressed();
     }
     public void OnShootButtonClicked()
     {
         SoundManager.Instance.PlaySFX(SoundName.Shoot);
-        // Gọi hàm ShootWeapon của PlayerWeapon khi button được nhấn
         playerWeapon.ShootButtonPressed();
     }
     public void OnSwitchWeaponClicked()
     {
-        // Gọi hàm ChangeWeapon của PlayerWeapon khi button được nhấn
         playerWeapon.ChangeButtonPressed();
     }
     public void SetCurrentPickableItem(PickableItem item)

@@ -64,7 +64,6 @@ public class PlayerWeapon : CharacterWeapon
             CreateWeapon(weapon);
             return;
         }
-        //Destroy current weapon
         currentWeapon.DestroyWeapon();
         equippedWeapons[WeaponIndex] = null;
 
@@ -109,18 +108,17 @@ public class PlayerWeapon : CharacterWeapon
 
     private void ShootWeapon()
     {
-        if (currentWeapon == null)//khong co weapon nao thi return
+        if (currentWeapon == null)
         {
             return;
         }
-        if (CanUseWeapon() == false)//khong co energy hoac khong the su dung weapon thi return
+        if (CanUseWeapon() == false)
         {
             return;
         }
         SoundManager.Instance.PlaySFX(SoundName.Shoot);
         currentWeapon.UseWeapon();
         playerEnergy.UseEnergy(currentWeapon.ItemWeapon.RequireEnergy);
-        //acces require energy de tru energy khi dung weapon
     }
 
     public float GetDamageUsingCriticalChance()

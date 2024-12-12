@@ -12,10 +12,7 @@ public class GameManager : PersistentSingleton<GameManager>
     
     public PlayerConfig Player { get; set; }
 
-    // private void Awake()
-    // {
-    //     Instance = this;
-    // }
+
 
     public Color GetWeaponNameColor(WeaponRarity rarity)
     {

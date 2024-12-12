@@ -7,7 +7,6 @@ public class PlayerHealth : MonoBehaviour, ITakeDamage
 {
     public static event Action OnPlayerDeadEvent;
 
-
     [Header("Player")]
     [SerializeField] private PlayerConfig playerConfig;
     private void Update(){
@@ -36,8 +35,6 @@ public class PlayerHealth : MonoBehaviour, ITakeDamage
 
         if (playerConfig.Armor > 0)
         {
-            //hàm Mathf.Max được sử dụng để đảm bảo rằng các giá trị của Armor và CurrentHealth không bao giờ trở nên âm sau khi bị trừ bởi một giá trị nào đó.
-            //pha huy giap truoc roi damage vao mau
             float remainingDamage = amount - playerConfig.Armor;
             playerConfig.Armor = Mathf.Max(playerConfig.Armor - amount, 0f);
             if (remainingDamage > 0)
