@@ -8,11 +8,11 @@ public class PlayerWeapon : CharacterWeapon
 
     [Header("Player")]
     [SerializeField] private PlayerConfig config;
-    
+
     private int WeaponIndex;   //0-1 
     private Weapon[] equippedWeapons = new Weapon[2];
 
-    private PlayerActions actions; 
+    private PlayerActions actions;
     private PlayerEnergy playerEnergy;
     private PlayerDetection detection;
     private PlayerMovement playerMovement;
@@ -26,7 +26,7 @@ public class PlayerWeapon : CharacterWeapon
         playerEnergy = GetComponent<PlayerEnergy>();
         playerMovement = GetComponent<PlayerMovement>();
     }
-    
+
     void Start()
     {
         actions.Weapon.Shoot.performed += context => ShootWeapon();
@@ -35,18 +35,18 @@ public class PlayerWeapon : CharacterWeapon
 
     void Update()
     {
-        if(currentWeapon == null)
+        if (currentWeapon == null)
         {
             return;
-        }   
+        }
         RotatePlayerWeapon();
-        
+
     }
     private void CreateWeapon(Weapon weaponPrefab)
     {
         currentWeapon = Instantiate(weaponPrefab, weaponPos.position, Quaternion.identity, weaponPos);
-        equippedWeapons[WeaponIndex] = currentWeapon;    
-        equippedWeapons[WeaponIndex].CharacterParent = this;   
+        equippedWeapons[WeaponIndex] = currentWeapon;
+        equippedWeapons[WeaponIndex].CharacterParent = this;
         OnWeaponUIUpdateEvent?.Invoke(currentWeapon);
     }
 
@@ -68,7 +68,7 @@ public class PlayerWeapon : CharacterWeapon
         equippedWeapons[WeaponIndex] = null;
 
         CreateWeapon(weapon);
-        
+
     }
     private void ChangeWeapon()
     {
@@ -80,10 +80,12 @@ public class PlayerWeapon : CharacterWeapon
         {
             return;
         }
-        for (int i = 0; i < equippedWeapons.Length; i++)
+
+        if (currentWeapon != null)
         {
-            equippedWeapons[i].gameObject.SetActive(false);
+            currentWeapon.gameObject.SetActive(false);
         }
+
         WeaponIndex = 1 - WeaponIndex;
         currentWeapon = equippedWeapons[WeaponIndex];
         currentWeapon.gameObject.SetActive(true);
@@ -135,11 +137,11 @@ public class PlayerWeapon : CharacterWeapon
 
     private bool CanUseWeapon()
     {
-        if(currentWeapon.ItemWeapon.WeaponType == WeaponType.Gun && playerEnergy.CanUseEnergy)
+        if (currentWeapon.ItemWeapon.WeaponType == WeaponType.Gun && playerEnergy.CanUseEnergy)
         {
             return true;
         }
-        if(currentWeapon.ItemWeapon.WeaponType == WeaponType.Melee)
+        if (currentWeapon.ItemWeapon.WeaponType == WeaponType.Melee)
         {
             return true;
         }
