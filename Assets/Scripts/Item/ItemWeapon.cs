@@ -22,9 +22,6 @@ public class ItemWeapon : ItemData
     [Header("Settings")]
     public float Damage;
     public float RequireEnergy;
-    public float TimeBetweenShots;
-    public float MinSpread;
-    public float MaxSpread;
 
     [Header("Weapon")]
     public Weapon WeaponPrefab;

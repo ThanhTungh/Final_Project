@@ -17,9 +17,6 @@ public class GunWeapon : Weapon
         {
             projectile.Damage = itemWeapon.Damage;
         }
-
-        float randomSpread = Random.Range(itemWeapon.MinSpread, itemWeapon.MaxSpread);
-        projectile.transform.rotation = Quaternion.Euler(randomSpread*Vector3.forward);
     }
     public override void DestroyWeapon()
     {
