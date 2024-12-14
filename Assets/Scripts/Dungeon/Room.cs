@@ -43,7 +43,7 @@ public class Room : MonoBehaviour
     {
         GetTiles();
         CreateDoors();
-        GenerateRoomUsingTemplate();
+        // GenerateRoomUsingTemplate();
     }
 
     private void GetTiles()
@@ -84,41 +84,41 @@ public class Room : MonoBehaviour
     }
 
 
-    private void GenerateRoomUsingTemplate()
-    {
-        if (NormalRoom() || BossRoom())
-        {
-            return;
-        }
+    // private void GenerateRoomUsingTemplate()
+    // {
+    //     if (NormalRoom() || BossRoom())
+    //     {
+    //         return;
+    //     }
 
-        int randomIndex = Random.Range(0, LevelManager.Instance.RoomTemplates.Templates.Length);
-        Texture2D texture = LevelManager.Instance.RoomTemplates.Templates[randomIndex];
-        List<Vector3> positions = new List<Vector3>(tiles.Keys);
+    //     int randomIndex = Random.Range(0, LevelManager.Instance.RoomTemplates.Templates.Length);
+    //     Texture2D texture = LevelManager.Instance.RoomTemplates.Templates[randomIndex];
+    //     List<Vector3> positions = new List<Vector3>(tiles.Keys);
         
-        for (int y = 0, a = 0; y < texture.height; y++)
-        {
-            for (int x = 0; x < texture.width; x++, a++)
-            {
-                Color pixelColor = texture.GetPixel(x, y); 
+    //     for (int y = 0, a = 0; y < texture.height; y++)
+    //     {
+    //         for (int x = 0; x < texture.width; x++, a++)
+    //         {
+    //             Color pixelColor = texture.GetPixel(x, y); 
 
-                foreach (RoomProp prop in LevelManager.Instance.RoomTemplates.PropsData)
-                {
-                    if (pixelColor == prop.PropColor)
-                    {
-                        GameObject propInstance = Instantiate(prop.PropPrefab, extraTilemap.transform); 
+    //             foreach (RoomProp prop in LevelManager.Instance.RoomTemplates.PropsData)
+    //             {
+    //                 if (pixelColor == prop.PropColor)
+    //                 {
+    //                     GameObject propInstance = Instantiate(prop.PropPrefab, extraTilemap.transform); 
 
-                        propInstance.transform.position = new Vector3(positions[a].x, positions[a].y, 0f);
+    //                     propInstance.transform.position = new Vector3(positions[a].x, positions[a].y, 0f);
 
-                        if (tiles.ContainsKey(positions[a])) 
-                        {
-                            tiles[positions[a]] = false;
-                        }
-                    }
-                }
-            }
-        }
+    //                     if (tiles.ContainsKey(positions[a])) 
+    //                     {
+    //                         tiles[positions[a]] = false;
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
 
-    }
+    // }
 
     public Vector3 GetAvailableTilePos()
     {
