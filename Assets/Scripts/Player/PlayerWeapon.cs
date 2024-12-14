@@ -123,17 +123,6 @@ public class PlayerWeapon : CharacterWeapon
         playerEnergy.UseEnergy(currentWeapon.ItemWeapon.RequireEnergy);
     }
 
-    public float GetDamageUsingCriticalChance()
-    {
-        float damage = currentWeapon.ItemWeapon.Damage;
-        float porc = Random.Range(0f, 100f);
-        if (porc < config.CriticalChance)
-        {
-            damage += damage * (config.CriticalDamage / 100f);
-            return damage;
-        }
-        return damage;
-    }
 
     private bool CanUseWeapon()
     {

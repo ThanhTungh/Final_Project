@@ -14,16 +14,7 @@ public class MeleeWeapon : Weapon
         {
             if (target != null)
             {
-                if (CharacterParent is PlayerWeapon player)
-                {
-                    // Enemy
-                    target.TakeDamage(player.GetDamageUsingCriticalChance());
-                }
-                else
-                {
-                    // Player
-                    target.TakeDamage(itemWeapon.Damage);
-                }
+                target.TakeDamage(itemWeapon.Damage);
             }
         }
     }

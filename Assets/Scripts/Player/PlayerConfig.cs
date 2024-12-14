@@ -17,14 +17,12 @@ public class PlayerConfig : ScriptableObject
     public float MaxArmor;
     public float Energy;
     public float MaxEnergy;
-    public float CriticalChance;
-    public float CriticalDamage;
+
 
     [Header("Upgrade Values")]
     public float HealthMaxUpgrade;
     public float ArmorhMaxUpgrade;
     public float EnergyMaxUpgrade;
-    public float CriticalMaxUpgrade;
 
     [Header("Extra")]
     public bool Unlocked;

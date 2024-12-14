@@ -109,14 +109,12 @@ public class MenuManager : Singleton<MenuManager>
         config.MaxHealth++;
         config.MaxArmor++;
         config.MaxEnergy += 10f;
-        config.CriticalChance += 2f;
-        config.CriticalDamage += 5f;
-
+        
         // Character combat index limit
         config.MaxHealth = Math.Min(config.MaxHealth, config.HealthMaxUpgrade);
         config.MaxArmor = Math.Min(config.MaxArmor, config.ArmorhMaxUpgrade);
         config.MaxEnergy = Math.Min(config.MaxEnergy, config.EnergyMaxUpgrade);
-        config.CriticalChance = Math.Min(config.CriticalChance, config.CriticalMaxUpgrade);
+    
 
         
         float upgrade = config.UpgradeCost;
@@ -132,7 +130,6 @@ public class MenuManager : Singleton<MenuManager>
         playerHealthMaxStat.text = currentPlayer.Config.MaxHealth.ToString();
         playerArmorMaxStat.text = currentPlayer.Config.MaxArmor.ToString();
         playerEnergyMaxStat.text = currentPlayer.Config.MaxEnergy.ToString();
-        playerCriticalMaxStat.text = currentPlayer.Config.CriticalChance.ToString();
 
         playerUnlockCostTMP.text = currentPlayer.Config.UnlockCost.ToString();
         playerUpgradeCostTMP.text = currentPlayer.Config.UpgradeCost.ToString();
@@ -141,7 +138,6 @@ public class MenuManager : Singleton<MenuManager>
         healthBar.fillAmount = currentPlayer.Config.MaxHealth / currentPlayer.Config.HealthMaxUpgrade;
         armorBar.fillAmount = currentPlayer.Config.MaxArmor / currentPlayer.Config.ArmorhMaxUpgrade;
         energyBar.fillAmount = currentPlayer.Config.MaxEnergy / currentPlayer.Config.EnergyMaxUpgrade;
-        criticalBar.fillAmount = currentPlayer.Config.CriticalChance / currentPlayer.Config.CriticalMaxUpgrade;
     }
 
     private void VerifyPlayer()
