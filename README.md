@@ -21,6 +21,11 @@ Name Project: Tiny Dungeon
 ![image](https://github.com/user-attachments/assets/c6fb0d05-c93e-4f09-b234-d80047e5f5a9)
   e.Player dead screen
 ![image](https://github.com/user-attachments/assets/10924c75-c538-4b96-87f5-bdc5eb654865)
+  f. End game
+![image](https://github.com/user-attachments/assets/63ad0ace-26c9-49f9-9be6-574e7eef9f43)
+![image](https://github.com/user-attachments/assets/d1bcd89c-3459-4143-b4e3-c503e8a69f2a)
+
+
 
 
 
